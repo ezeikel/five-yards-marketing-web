@@ -1,9 +1,9 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-// import FabricImage from "../images/fabric.png";
+import FabricImage from "../images/fabric.png";
 // import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
+// import BackgroundImage from "gatsby-background-image";
 
 const Wrapper = styled.section`
   display: flex;
@@ -30,6 +30,16 @@ const AppPreview = styled.div`
   display: flex;
   width: 100%;
   height: 256px;
+  background-color: yellow;
+`;
+
+const Fabric = styled.div`
+  background-image: url(${FabricImage});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
 `;
 
 const CTA = styled.div`
@@ -71,7 +81,7 @@ const Hero = () => {
 
   return (
     <Wrapper>
-      <AppPreview>
+      {/* <AppPreview>
         <BackgroundImage
           Tag="div"
           fluid={data.fabricImage.childImageSharp.fluid}
@@ -79,6 +89,15 @@ const Hero = () => {
             objectFit: "contain",
           }}
         />
+      </AppPreview> */}
+      <AppPreview>
+        {/* <Img
+          fluid={data.fabricImage.childImageSharp.fluid}
+          imgStyle={{
+            objectFit: "cover",
+          }}
+        /> */}
+        <Fabric />
       </AppPreview>
       <CTA>
         <Heading>{data.contentfulHero.heading}</Heading>
