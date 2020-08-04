@@ -1,5 +1,5 @@
-import { createGlobalStyle, keyframes } from "styled-components"
-import styledNormalize from "styled-normalize"
+import { createGlobalStyle, keyframes } from "styled-components";
+import styledNormalize from "styled-normalize";
 
 export default createGlobalStyle`
   ${styledNormalize}
@@ -10,8 +10,9 @@ export default createGlobalStyle`
     --color-white: #FFFFFF;
     --color-red: #E52028;
     --color-blue: #007BB7;
-    --color-grey: #666666;
-    --color-text: #000F1C;
+    --color-grey: #CCCCCC;
+    --color-text: #2F2F2F;
+    --color-accent: #04ACBA;
     /* Spacing */
     --spacing-tiny: 4px;
     --spacing-small: 8px;
@@ -94,7 +95,7 @@ export default createGlobalStyle`
   .wf-loading {
     visibility: hidden;
   }
-`
+`;
 
 export const spinKeyframe = keyframes`
   from {
@@ -103,4 +104,4 @@ export const spinKeyframe = keyframes`
   to {
     transform: rotate(360deg);
   }
-`
+`;

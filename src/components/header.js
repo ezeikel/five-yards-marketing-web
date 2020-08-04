@@ -1,42 +1,31 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from "react";
+import styled from "styled-components";
+import Logo from "../images/logo.svg";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Wrapper = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  svg {
+    width: 124px;
+  }
+`;
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+const Button = styled.button`
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 2px;
+`;
 
-export default Header
+const Header = () => (
+  <Wrapper>
+    <Logo />
+    <Button>Sign up</Button>
+  </Wrapper>
+);
+
+export default Header;
