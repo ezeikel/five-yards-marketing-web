@@ -33,6 +33,10 @@ export default createGlobalStyle`
   }
   * {
     box-sizing: border-box;
+
+    /* FIX: for slickjs carousel - https://github.com/kenwheeler/slick/issues/982#issuecomment-73517458 */
+    min-height: 0;
+    min-width: 0;
   }
   html {
     font-size: var(--default-font-size);

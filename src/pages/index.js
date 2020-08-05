@@ -4,6 +4,7 @@ import SEO from "../components/seo";
 import Hero from "../components/hero";
 import HowItWorks from "../components/howItWorks";
 import KeyFeatures from "../components/keyFeatures";
+import Join from "../components/join";
 
 const IndexPage = () => (
   <Layout>
@@ -11,6 +12,7 @@ const IndexPage = () => (
     <Hero />
     <HowItWorks />
     <KeyFeatures />
+    <Join />
   </Layout>
 );
 

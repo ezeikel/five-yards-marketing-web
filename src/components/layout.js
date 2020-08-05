@@ -12,9 +12,18 @@ import GlobalStyle from "../GlobalStyle";
 import Header from "./header";
 import Footer from "./footer";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faFacebookF,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+
+library.add(faFacebookF, faTwitter, faInstagram);
+
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 70px 1fr 465px;
+  grid-template-rows: 70px 1fr auto;
   min-height: 100vh;
 `;
 
