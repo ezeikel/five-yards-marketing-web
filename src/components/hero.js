@@ -15,7 +15,7 @@ const Heading = styled.h1`
   font-family: var(--secondary-font-family);
   font-size: 44px;
   color: var(--color-black);
-  margin-bottom: 8px;
+  margin: 0 0 8px;
 `;
 
 const Subheading = styled.h2`
@@ -23,14 +23,14 @@ const Subheading = styled.h2`
   font-size: 22px;
   line-height: 1.5;
   font-weight: 400;
-  margin-bottom: 16px;
+  margin: 0 0 16px;
 `;
 
 const AppPreview = styled.div`
   display: flex;
   width: 100%;
   height: 256px;
-  background-color: yellow;
+  margin-bottom: 60px;
 `;
 
 const Fabric = styled.div`
@@ -45,21 +45,31 @@ const Fabric = styled.div`
 const CTA = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0 0 32px;
 `;
 
 const StyledForm = styled.form`
+  display: flex;
   input {
+    flex: 1 0 auto;
     padding: 10px 16px;
     font-size: 16px;
     border: 1px solid var(--color-grey);
+    border-right: none;
+    border-radius: 2px 0px 0px 2px;
   }
   button {
     color: var(--color-white);
     background-color: var(--color-accent);
     font-size: 14px;
     padding: 10px 16px;
-    border-radius: 2px;
+    border-radius: 0px 2px 2px 0px;
   }
+`;
+
+const More = styled.span`
+  font-size: 12px;
+  text-align: center;
 `;
 
 const Hero = () => {
@@ -107,6 +117,7 @@ const Hero = () => {
           <button type="submit">Sign up</button>
         </StyledForm>
       </CTA>
+      <More>SEE MORE</More>
     </Wrapper>
   );
 };
