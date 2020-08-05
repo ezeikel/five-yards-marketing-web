@@ -1,27 +1,26 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import FabricImage from "../images/fabric.png";
-// import Img from "gatsby-image";
-// import BackgroundImage from "gatsby-background-image";
+import BackgroundImage from "gatsby-background-image";
+import Img from "gatsby-image";
 
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 36px;
 `;
 
 const Heading = styled.h1`
   font-family: var(--secondary-font-family);
-  font-size: 44px;
+  font-size: 35px;
+  line-height: 44px;
   color: var(--color-black);
   margin: 0 0 8px;
 `;
 
 const Subheading = styled.h2`
   color: var(--color-black);
-  font-size: 22px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: 400;
   margin: 0 0 16px;
 `;
@@ -33,19 +32,23 @@ const AppPreview = styled.div`
   margin-bottom: 60px;
 `;
 
-const Fabric = styled.div`
-  background-image: url(${FabricImage});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+const StyledBackgroundImage = styled(BackgroundImage)`
   width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledUiImage = styled(Img)`
+  width: 372px;
+  height: 252px;
+  transform: scale(0.9);
 `;
 
 const CTA = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 0 32px;
+  padding: 0 36px;
 `;
 
 const StyledForm = styled.form`
@@ -70,6 +73,7 @@ const StyledForm = styled.form`
 const More = styled.span`
   font-size: 12px;
   text-align: center;
+  margin-bottom: 31px;
 `;
 
 const Hero = () => {
@@ -86,28 +90,33 @@ const Hero = () => {
           }
         }
       }
+      uiImage: file(relativePath: { eq: "app-ui.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
   return (
     <Wrapper>
-      {/* <AppPreview>
-        <BackgroundImage
-          Tag="div"
-          fluid={data.fabricImage.childImageSharp.fluid}
-          imgStyle={{
-            objectFit: "contain",
-          }}
-        />
-      </AppPreview> */}
       <AppPreview>
-        {/* <Img
+        <StyledBackgroundImage
+          Tag="div"
           fluid={data.fabricImage.childImageSharp.fluid}
           imgStyle={{
             objectFit: "cover",
           }}
-        /> */}
-        <Fabric />
+        >
+          <StyledUiImage
+            fluid={data.uiImage.childImageSharp.fluid}
+            imgStyle={{
+              objectFit: "cover",
+            }}
+          />
+        </StyledBackgroundImage>
       </AppPreview>
       <CTA>
         <Heading>{data.contentfulHero.heading}</Heading>

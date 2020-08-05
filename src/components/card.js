@@ -5,7 +5,6 @@ import Img from "gatsby-image";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 16px;
   background-color: var(--color-white);
   border-radius: 0 0 22px 22px;
 `;
@@ -15,7 +14,6 @@ const Note = styled.span`
   font-size: 20px;
   color: #04acba;
   margin-bottom: 12px;
-  opacity: 0.5;
 `;
 
 const Heading = styled.h4`
@@ -35,6 +33,12 @@ const Body = styled.p`
 
 const StyledImg = styled(Img)`
   margin-bottom: 20px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+`;
+
+const Bottom = styled.div`
+  padding: 16px;
 `;
 
 const Card = ({ image, heading, body, note }) => (
@@ -45,11 +49,11 @@ const Card = ({ image, heading, body, note }) => (
         objectFit: "cover",
       }}
     />
-    <div>
+    <Bottom>
       <Note>{note}</Note>
       <Heading>{heading}</Heading>
       <Body>{body}</Body>
-    </div>
+    </Bottom>
   </Wrapper>
 );
 

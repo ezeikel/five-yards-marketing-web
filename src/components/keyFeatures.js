@@ -62,22 +62,27 @@ const Header = () => {
     {
       title: "search",
       content: data.searchImage.childImageSharp.fluid,
+      label: "Criteria based search",
     },
     {
       title: "reviews",
       content: data.reviewsImage.childImageSharp.fluid,
+      label: "Customer reviews",
     },
     {
       title: "messaging",
       content: data.messagingImage.childImageSharp.fluid,
+      label: "Private messages",
     },
     {
       title: "tracking",
       content: data.trackingImage.childImageSharp.fluid,
+      label: "Order tracking",
     },
     {
       title: "dashboard",
       content: data.dashboardImage.childImageSharp.fluid,
+      label: "Personalised dashboard",
     },
   ];
 
