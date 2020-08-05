@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import Img from "gatsby-image";
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   padding: 16px;
   background-color: var(--color-white);
   border-radius: 0 0 22px 22px;
@@ -31,9 +33,18 @@ const Body = styled.p`
   margin-bottom: 8px;
 `;
 
+const StyledImg = styled(Img)`
+  margin-bottom: 20px;
+`;
+
 const Card = ({ image, heading, body, note }) => (
   <Wrapper>
-    <img src={image} />
+    <StyledImg
+      fluid={image}
+      imgStyle={{
+        objectFit: "cover",
+      }}
+    />
     <div>
       <Note>{note}</Note>
       <Heading>{heading}</Heading>

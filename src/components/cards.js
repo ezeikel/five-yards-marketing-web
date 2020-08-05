@@ -14,8 +14,14 @@ const Wrapper = styled.div`
 
 const Cards = ({ items }) => (
   <Wrapper>
-    {items.map(({ image, heading, body, note }) => (
-      <Card image={image} heading={heading} body={body} note={note} />
+    {items.map(({ image, heading, body, note }, index) => (
+      <Card
+        key={index}
+        image={image}
+        heading={heading}
+        body={body}
+        note={note}
+      />
     ))}
   </Wrapper>
 );
