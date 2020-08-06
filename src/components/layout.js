@@ -18,8 +18,9 @@ import {
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { faCheckCircle } from "@fortawesome/pro-light-svg-icons";
 
-library.add(faFacebookF, faTwitter, faInstagram);
+library.add(faFacebookF, faTwitter, faInstagram, faCheckCircle);
 
 const Wrapper = styled.div`
   display: grid;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,16 +29,18 @@ const CheckboxFeatures = styled.div`
   margin-bottom: 43px;
   > div {
     display: flex;
+    align-items: center;
     + div {
       margin-top: 20px;
     }
     span {
-      &:first-of-type {
+      /* &:first-of-type {
         width: 38px;
         height: 38px;
         background: tomato;
-      }
-      &:nth-of-type(2) {
+      } */
+      max-width: 129px;
+      &:first-of-type {
         margin-left: 44px;
       }
     }
@@ -70,7 +73,11 @@ const Join = () => {
       <CheckboxFeatures>
         {CHECKBOX_FEATURES.map((feature, index) => (
           <div key={index}>
-            <span></span>
+            <FontAwesomeIcon
+              icon={["fal", "check-circle"]}
+              color="var(--color-accent)"
+              size="2x"
+            />
             <span>{feature}</span>
           </div>
         ))}

@@ -60,6 +60,7 @@ const SocialLinks = styled.div`
 const Copyright = styled.div`
   display: flex;
   font-size: 14px;
+  color: #bebebe;
 `;
 
 const Footer = () => {
@@ -102,7 +103,7 @@ const Footer = () => {
         <span>Follow us</span>
         <ul>
           <li>
-            <a href="https://www.facbook.com/fiveyardsapp">
+            <a href="https://www.facebook.com/fiveyardsapp">
               <FontAwesomeIcon
                 icon={["fab", "facebook-f"]}
                 color="var(--color-white)"

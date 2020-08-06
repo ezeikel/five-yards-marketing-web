@@ -8,11 +8,11 @@ import CarouselSlide from "./carouselSlide";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding-bottom: 23px;
   .slick-list {
     margin-bottom: 71px;
   }
   .slick-dots {
-    margin-top: 71px;
     button {
       width: 14px;
       height: 14px;
