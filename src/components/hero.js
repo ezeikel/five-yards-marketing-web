@@ -1,8 +1,20 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
+import { Formik, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import TextInput from "./textInput";
 import BackgroundImage from "gatsby-background-image";
 import Img from "gatsby-image";
+
+import { trackCustomEvent } from "gatsby-plugin-google-analytics";
+import addToMailchimp from "gatsby-plugin-mailchimp";
+
+const SignupSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Please enter a valid email address")
+    .required("Please enter an email address"),
+});
 
 const Wrapper = styled.section`
   display: flex;
@@ -55,17 +67,19 @@ const CTA = styled.div`
   padding: 0 36px;
 `;
 
-const StyledForm = styled.form`
+const StyledForm = styled(Form)`
   display: flex;
   input {
     flex: 1 0 auto;
     padding: 10px 16px;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 16px;
     border: 1px solid var(--color-grey);
     border-right: none;
     border-radius: 2px 0px 0px 2px;
   }
   button {
+    flex: 0 0 auto;
     color: var(--color-white);
     background-color: var(--color-accent);
     font-size: 14px;
@@ -125,10 +139,63 @@ const Hero = () => {
       <CTA>
         <Heading>{data.contentfulHero.heading}</Heading>
         <Subheading>{data.contentfulHero.subHeading}</Subheading>
-        <StyledForm>
-          <input type="email" placeholder="Your email" />
-          <button type="submit">Sign up</button>
-        </StyledForm>
+        <Formik
+          initialValues={{ email: "" }}
+          validationSchema={SignupSchema}
+          onSubmit={async (
+            { email },
+            { setSubmitting, setErrors, resetForm }
+          ) => {
+            // extra info to send to mailchimp
+            const listData = {};
+
+            try {
+              const result = await addToMailchimp(email, listData);
+
+              if (result.result === "error") {
+                setErrors({
+                  email: result.msg,
+                });
+                trackCustomEvent({
+                  category: "Signup Form",
+                  action: "Fail",
+                  label: "Gatsby Google Analytics Signup Form",
+                });
+                setSubmitting(false);
+              } else {
+                trackCustomEvent({
+                  category: "Signup Form",
+                  action: "Success",
+                  label: "Gatsby Google Analytics Signup Form",
+                });
+                setSubmitting(false);
+                resetForm();
+              }
+            } catch (e) {
+              if (e.message === "Timeout") {
+                setErrors({
+                  email:
+                    "Looks like you are using an add blocking browser that's preventing this form from being submitted - please temporarily toggle off the 'Ads and trackers blocked' settings and then re-submit the form.",
+                });
+              }
+              setSubmitting(false);
+            }
+          }}
+        >
+          {({ isSubmitting, errors }) => (
+            <StyledForm>
+              <TextInput
+                name="email"
+                type="email"
+                placeholder="thomas@sankara.com"
+              />
+              <ErrorMessage component={Error} name="email" />
+              <button type="submit">
+                {isSubmitting ? "Signing up" : "Sign up"}
+              </button>
+            </StyledForm>
+          )}
+        </Formik>
       </CTA>
       <More>SEE MORE</More>
     </Wrapper>
