@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useStaticQuery, graphql } from "gatsby";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 import Img from "gatsby-image";
 
 const Wrapper = styled.footer`
@@ -89,13 +90,13 @@ const Footer = () => {
       <Links>
         <ul>
           <li>
-            <a href="">Privacy policy</a>
+            <OutboundLink href="">Privacy policy</OutboundLink>
           </li>
           <li>
-            <a href="">Join the team</a>
+            <OutboundLink href="">Join the team</OutboundLink>
           </li>
           <li>
-            <a href="">Get support</a>
+            <OutboundLink href="">Get support</OutboundLink>
           </li>
         </ul>
       </Links>
@@ -103,31 +104,31 @@ const Footer = () => {
         <span>Follow us</span>
         <ul>
           <li>
-            <a href="https://www.facebook.com/fiveyardsapp">
+            <OutboundLink href="https://www.facebook.com/fiveyardsapp">
               <FontAwesomeIcon
                 icon={["fab", "facebook-f"]}
                 color="var(--color-white)"
                 size="3x"
               />
-            </a>
+            </OutboundLink>
           </li>
           <li>
-            <a href="https://twitter.com/fiveyardsapp">
+            <OutboundLink href="https://twitter.com/fiveyardsapp">
               <FontAwesomeIcon
                 icon={["fab", "twitter"]}
                 color="var(--color-white)"
                 size="3x"
               />
-            </a>
+            </OutboundLink>
           </li>
           <li>
-            <a href="https://www.instagram.com/fiveyardsapp">
+            <OutboundLink href="https://www.instagram.com/fiveyardsapp">
               <FontAwesomeIcon
                 icon={["fab", "instagram"]}
                 color="var(--color-white)"
                 size="3x"
               />
-            </a>
+            </OutboundLink>
           </li>
         </ul>
       </SocialLinks>
