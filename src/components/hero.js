@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 
-import GenericModal from "./GenericModal";
+import GenericModal from "./genericModal";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
