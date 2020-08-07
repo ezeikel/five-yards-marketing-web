@@ -92,8 +92,6 @@ export default createGlobalStyle`
     appearance: none;
   }
   button[type="submit"][disabled] {
-    opacity: 0.7;
-    text-decoration: line-through;
   }
   /* Hide fonts until webfonts have loaded to avoid FOUT */
   .wf-loading {

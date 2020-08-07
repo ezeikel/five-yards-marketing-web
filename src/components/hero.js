@@ -15,9 +15,7 @@ import addToMailchimp from "gatsby-plugin-mailchimp";
 import GenericModal from "./genericModal";
 
 const SignupSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Please enter a valid email address")
-    .required("Please enter an email address"),
+  email: Yup.string().email("Need a valid email").required("Need an email"),
 });
 
 const Wrapper = styled.section`
@@ -73,23 +71,35 @@ const CTA = styled.div`
 
 const StyledForm = styled(Form)`
   display: flex;
+  position: relative;
   input {
     flex: 1 0 auto;
-    padding: 10px 16px;
-    font-size: 14px;
-    line-height: 16px;
-    border: 1px solid var(--color-grey);
     border-right: none;
     border-radius: 2px 0px 0px 2px;
   }
-  button {
-    flex: 0 0 auto;
-    color: var(--color-white);
-    background-color: var(--color-accent);
-    font-size: 14px;
-    padding: 10px 16px;
-    border-radius: 0px 2px 2px 0px;
+  svg {
+    position: absolute;
+    right: 16px;
+    top: 10px;
   }
+`;
+
+const Error = styled.div`
+  align-self: flex-start;
+  font-size: 14px;
+  color: var(--color-red);
+  line-height: 20px;
+  margin: 10px 0 32px 19px;
+`;
+
+const SubmitButton = styled.button`
+  flex: 0 0 auto;
+  color: ${({ error }) => (error ? "#ff4c4c" : "var(--color-white)")};
+  background-color: ${({ error }) =>
+    error ? "#b33237" : "var(--color-accent)"};
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 0px 2px 2px 0px;
 `;
 
 const More = styled.span`
@@ -249,17 +259,30 @@ const Hero = () => {
             }
           }}
         >
-          {({ isSubmitting, errors }) => (
+          {({ isSubmitting, errors, setErrors }) => (
             <StyledForm>
               <TextInput
                 name="email"
                 type="email"
                 placeholder="thomas@sankara.com"
+                error={errors.email}
               />
-              <ErrorMessage component={Error} name="email" />
-              <button type="submit">
+              {/* <ErrorMessage component={Error} name="email" /> */}
+              <SubmitButton
+                error={errors.email}
+                type="submit"
+                disabled={errors.email}
+              >
                 {isSubmitting ? "Signing up" : "Sign up"}
-              </button>
+              </SubmitButton>
+              {errors.email && (
+                <FontAwesomeIcon
+                  icon={["fal", "times-circle"]}
+                  color="var(--color-white)"
+                  size="2x"
+                  onClick={() => setErrors({})}
+                />
+              )}
             </StyledForm>
           )}
         </Formik>
