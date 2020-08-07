@@ -23,6 +23,7 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     background: rgba(0, 0, 0, 0.5);
     display: grid;
     place-items: center;
+    padding: 20px;
   }
   .modal {
     display: flex;
@@ -36,10 +37,6 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     min-height: 200px;
     max-height: 921px;
   }
-`;
-
-const Header = styled.section`
-  display: grid;
 `;
 
 const Body = styled.div`

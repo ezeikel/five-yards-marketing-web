@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import Carousel from "./carousel";
-import Img from "gatsby-image";
 
 const Wrapper = styled.div`
   display: block;
@@ -20,7 +19,7 @@ const Heading = styled.h2`
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
-      searchImage: file(relativePath: { eq: "dashboard.png" }) {
+      searchImage: file(relativePath: { eq: "search.png" }) {
         childImageSharp {
           fluid(maxWidth: 477) {
             ...GatsbyImageSharpFluid

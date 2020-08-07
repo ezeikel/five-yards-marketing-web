@@ -118,9 +118,21 @@ const Thanks = styled.div`
     align-items: center;
     li {
       width: 100%;
-      padding: 10px 40px;
+      padding: 10px 20px;
       max-width: 160px;
       border-radius: 2px;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        line-height: 28px;
+        color: var(--color-white);
+      }
+      svg {
+        margin-right: 12px;
+        flex: 0 0 auto;
+      }
       &.twitter {
         background-color: #3c9cd8;
       }
@@ -224,7 +236,7 @@ const Hero = () => {
                 resetForm();
 
                 // open thank you modal
-                setIsOpen(true);
+                openModal();
               }
             } catch (e) {
               if (e.message === "Timeout") {
@@ -261,37 +273,49 @@ const Hero = () => {
         close={closeModal}
       >
         <Thanks>
-          <h3>Thank you for registering your interest in Five Yards.</h3>
+          <h3>Welcome to the Tribe!</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqu.
+            You are now on the waitlist. We'd really appreciate if you could
+            share Five Yards with your friends too
           </p>
           <ul>
             <li className="twitter">
-              <OutboundLink href="https://www.twitter.com/fiveyardsapp">
+              <OutboundLink
+                href="http://twitter.com/share?text=I just became part of the @fiveyardsapp tribe. You should join too! - &url=https://get.fiveyards.app&hashtags=fiveyards,africantailor,africanfabric"
+                target="_blank"
+              >
                 <FontAwesomeIcon
                   icon={["fab", "twitter"]}
                   color="var(--color-white)"
-                  size="2x"
+                  size="lg"
                 />
+                Twitter
               </OutboundLink>
             </li>
             <li className="facebook">
-              <OutboundLink href="https://facebook.com/fiveyardsapp">
+              <OutboundLink
+                href="https://www.facebook.com/sharer/sharer.php?u=https://get.fiveyards.app"
+                target="_blank"
+              >
                 <FontAwesomeIcon
                   icon={["fab", "facebook-f"]}
                   color="var(--color-white)"
-                  size="2x"
+                  size="lg"
                 />
+                Facebook
               </OutboundLink>
             </li>
             <li className="whatsapp">
-              <OutboundLink href="https://www.whatsapp.com">
+              <OutboundLink
+                href="whatsapp://send?text=I just became part of the Five Yards tribe. You should join too! https://get.fiveyards.app"
+                data-action="share/whatsapp/share"
+              >
                 <FontAwesomeIcon
                   icon={["fab", "whatsapp"]}
                   color="var(--color-white)"
-                  size="2x"
+                  size="lg"
                 />
+                WhatsApp
               </OutboundLink>
             </li>
           </ul>
