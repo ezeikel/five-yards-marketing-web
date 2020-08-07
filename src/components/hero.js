@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { Formik, Form, ErrorMessage } from "formik";
@@ -6,9 +6,13 @@ import * as Yup from "yup";
 import TextInput from "./textInput";
 import BackgroundImage from "gatsby-background-image";
 import Img from "gatsby-image";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import addToMailchimp from "gatsby-plugin-mailchimp";
+
+import GenericModal from "./GenericModal";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -94,6 +98,45 @@ const More = styled.span`
   margin-bottom: 31px;
 `;
 
+const Thanks = styled.div`
+  font-size: 12px;
+  text-align: center;
+  h3 {
+    font-size: 25px;
+    line-height: 30px;
+    font-family: var(--secondary-font-family);
+    margin: 0 0 29px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 21px;
+    margin: 0 0 31px;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    li {
+      width: 100%;
+      padding: 10px 40px;
+      max-width: 160px;
+      border-radius: 2px;
+      &.twitter {
+        background-color: #3c9cd8;
+      }
+      &.facebook {
+        background-color: #395aa1;
+      }
+      &.whatsapp {
+        background-color: #23d366;
+      }
+    }
+    li + li {
+      margin-top: 21px;
+    }
+  }
+`;
+
 const Hero = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -117,6 +160,16 @@ const Hero = () => {
       }
     }
   `);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = async () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <Wrapper>
@@ -151,7 +204,6 @@ const Hero = () => {
 
             try {
               const result = await addToMailchimp(email, listData);
-
               if (result.result === "error") {
                 setErrors({
                   email: result.msg,
@@ -170,6 +222,9 @@ const Hero = () => {
                 });
                 setSubmitting(false);
                 resetForm();
+
+                // open thank you modal
+                setIsOpen(true);
               }
             } catch (e) {
               if (e.message === "Timeout") {
@@ -198,6 +253,50 @@ const Hero = () => {
         </Formik>
       </CTA>
       <More>SEE MORE</More>
+      <GenericModal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        heading="Join the waitlisy"
+        contentLabel=""
+        close={closeModal}
+      >
+        <Thanks>
+          <h3>Thank you for registering your interest in Five Yards.</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqu.
+          </p>
+          <ul>
+            <li className="twitter">
+              <OutboundLink href="https://www.twitter.com/fiveyardsapp">
+                <FontAwesomeIcon
+                  icon={["fab", "twitter"]}
+                  color="var(--color-white)"
+                  size="2x"
+                />
+              </OutboundLink>
+            </li>
+            <li className="facebook">
+              <OutboundLink href="https://facebook.com/fiveyardsapp">
+                <FontAwesomeIcon
+                  icon={["fab", "facebook-f"]}
+                  color="var(--color-white)"
+                  size="2x"
+                />
+              </OutboundLink>
+            </li>
+            <li className="whatsapp">
+              <OutboundLink href="https://www.whatsapp.com">
+                <FontAwesomeIcon
+                  icon={["fab", "whatsapp"]}
+                  color="var(--color-white)"
+                  size="2x"
+                />
+              </OutboundLink>
+            </li>
+          </ul>
+        </Thanks>
+      </GenericModal>
     </Wrapper>
   );
 };

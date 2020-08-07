@@ -17,10 +17,11 @@ import {
   faFacebookF,
   faTwitter,
   faInstagram,
+  faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCheckCircle } from "@fortawesome/pro-light-svg-icons";
 
-library.add(faFacebookF, faTwitter, faInstagram, faCheckCircle);
+library.add(faFacebookF, faTwitter, faInstagram, faWhatsapp, faCheckCircle);
 
 const Wrapper = styled.div`
   display: grid;
