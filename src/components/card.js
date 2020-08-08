@@ -10,6 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const Note = styled.span`
+  font-family: var(--secondary-font-family);
   display: flex;
   font-size: 20px;
   color: #04acba;
