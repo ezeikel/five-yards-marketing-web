@@ -271,7 +271,7 @@ const Hero = () => {
                 type="email"
                 placeholder="thomas@sankara.com"
                 error={errors.email}
-                isIOS={true}
+                isIOS={isIOS}
               />
               <SubmitButton
                 error={errors.email}
