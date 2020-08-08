@@ -18,8 +18,7 @@ const Input = styled.input`
   border: ${({ isIOS }) => (isIOS ? "1.14" : "1")}px solid var(--color-grey);
   padding: ${({ isIOS }) =>
     isIOS ? "18.29px 9.14px 18.29px 21.72px" : "16px 8px 16px 19px"};
-  width: 100%;
-  padding: 10px 16px;
+  width: ${({ isIOS }) => (isIOS ? "calc(100% / 0.88)" : "100%")};
   padding: ${({ isIOS }) => (isIOS ? "11.43px 18.29px" : "10px 16px")};
   font-size:  ${({ isIOS }) => (isIOS ? "16" : "14")}px;
 
@@ -33,9 +32,7 @@ const Input = styled.input`
 
     /* remove extra white space */
     margin-bottom: -5px;
-    margin-right: -26px;
-    // margin-bottom: -10px;
-    // margin-right: -33.333333333%;
+    margin-right: calc(100% * 0.12);
   `
       : null};
 
