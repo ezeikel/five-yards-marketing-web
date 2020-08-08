@@ -9,13 +9,34 @@ const Wrapper = styled.div`
 
 const Input = styled.input`
   position: relative;
-  border-radius: 8px;
-  border: 1px solid var(--color-grey);
-  padding: 16px 8px 16px 19px;
+
+  /* enlarge by 16/14 = 114.29% */
+  border-radius: ${({ isIOS }) =>
+    isIOS ? "2.29px 0 0 2.29px" : " 2px 0px 0px 2px"};
+  border-radius: 2px 0px 0px 2px;
+  border: ${({ isIOS }) => (isIOS ? "1.14" : "1")}px solid var(--color-grey);
+  padding: ${({ isIOS }) =>
+    isIOS ? "18.29px 9.14px 18.29px 21.72px" : "16px 8px 16px 19px"};
   width: 100%;
   padding: 10px 16px;
-  font-size: 14px;
-  line-height: 16px;
+  padding: ${({ isIOS }) => (isIOS ? "11.43px 18.29px" : "10px 16px")};
+  font-size:  ${({ isIOS }) => (isIOS ? "16" : "14")}px;
+
+  ${({ isIOS }) =>
+    isIOS
+      ? `
+    /* scale down by 12/16 = 75% */
+    transform: scale(0.88);
+    transform-origin: left top;
+
+    /* remove extra white space */
+    margin-bottom: -5px;
+    margin-right: -26px;
+    // margin-bottom: -10px;
+    // margin-right: -33.333333333%;
+  `
+      : null};
+
   ${({ error }) =>
     error
       ? `
@@ -24,7 +45,7 @@ const Input = styled.input`
     border: 1px solid transparent;
 
     ::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
+    /* Chrome/Opera/Safari */  114.29
     color: var(--color-white);
   }
   ::-moz-placeholder {
@@ -68,13 +89,14 @@ const ErrorMessage = styled.span`
   padding: 10px 16px;
 `;
 
-const TextInput = ({ label, error, ...props }) => {
+const TextInput = ({ label, error, isIOS, ...props }) => {
   const [field, meta] = useField(props);
 
   return (
     <Wrapper>
       <Input
         error={meta.touched && meta.error !== undefined}
+        isIOS={true}
         {...field}
         {...props}
       />

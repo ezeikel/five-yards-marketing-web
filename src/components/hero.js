@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TextInput from "./textInput";
 import BackgroundImage from "gatsby-background-image";
 import Img from "gatsby-image";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import addToMailchimp from "gatsby-plugin-mailchimp";
-
+import { isIOS } from "react-device-detect";
 import GenericModal from "./genericModal";
 
 const SignupSchema = Yup.object().shape({
@@ -74,8 +73,8 @@ const StyledForm = styled(Form)`
   position: relative;
   input {
     flex: 1 0 auto;
-    border-right: none;
-    border-radius: 2px 0px 0px 2px;
+    /* border-right: none;
+    border-radius: 2px 0px 0px 2px; */
   }
   svg {
     position: absolute;
@@ -272,8 +271,8 @@ const Hero = () => {
                 type="email"
                 placeholder="thomas@sankara.com"
                 error={errors.email}
+                isIOS={true}
               />
-              {/* <ErrorMessage component={Error} name="email" /> */}
               <SubmitButton
                 error={errors.email}
                 type="submit"
