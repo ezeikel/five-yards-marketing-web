@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import Logo from "../images/logo.svg";
 
 const Wrapper = styled.header`
@@ -24,7 +25,9 @@ const Button = styled.button`
 const Header = () => (
   <Wrapper>
     <Logo />
-    <Button>Sign up</Button>
+    <AnchorLink to="/#signup" title="Join the tribe">
+      <Button>Sign up</Button>
+    </AnchorLink>
   </Wrapper>
 );
 

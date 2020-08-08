@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const Wrapper = styled.div`
   display: flex;
@@ -48,6 +49,7 @@ const CheckboxFeatures = styled.div`
 `;
 
 const Button = styled.button`
+  width: 100%;
   color: var(--color-white);
   background-color: var(--color-accent);
   font-size: 14px;
@@ -82,7 +84,9 @@ const Join = () => {
           </div>
         ))}
       </CheckboxFeatures>
-      <Button>Sign up now</Button>
+      <AnchorLink to="/#signup" title="Join the tribe">
+        <Button>Sign up now</Button>
+      </AnchorLink>
     </Wrapper>
   );
 };

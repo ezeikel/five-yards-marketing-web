@@ -265,7 +265,7 @@ const Hero = () => {
           }}
         >
           {({ isSubmitting, errors, setErrors }) => (
-            <StyledForm>
+            <StyledForm id="signup">
               <TextInput
                 name="email"
                 type="email"
