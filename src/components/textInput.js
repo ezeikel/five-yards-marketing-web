@@ -1,7 +1,6 @@
 import React from "react";
 import { useField } from "formik";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Wrapper = styled.div`
   position: relative;
@@ -15,8 +14,8 @@ const Input = styled.input`
   padding: 16px 8px 16px 19px;
   width: 100%;
   padding: 10px 16px;
-    font-size: 14px;
-    line-height: 16px;
+  font-size: 14px;
+  line-height: 16px;
   ${({ error }) =>
     error
       ? `
@@ -56,6 +55,7 @@ const Label = styled.label`
 
 const ErrorMessage = styled.span`
   display: flex;
+  align-items: center;
   background-color: #ff4c4c;
   color: var(--color-white);
   position: absolute;
@@ -73,9 +73,7 @@ const TextInput = ({ label, error, ...props }) => {
 
   return (
     <Wrapper>
-      {/* {meta.touched && meta.error !== undefined && <Asterix src="/star.svg" />} */}
       <Input
-        dirty={meta.touched && field.value.length > 0}
         error={meta.touched && meta.error !== undefined}
         {...field}
         {...props}

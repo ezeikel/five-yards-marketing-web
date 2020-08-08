@@ -80,7 +80,8 @@ const StyledForm = styled(Form)`
   svg {
     position: absolute;
     right: 16px;
-    top: 10px;
+    top: 50%;
+    margin-top: -10px;
   }
 `;
 
@@ -98,6 +99,7 @@ const SubmitButton = styled.button`
   background-color: ${({ error }) =>
     error ? "#b33237" : "var(--color-accent)"};
   font-size: 14px;
+  line-height: 2px;
   padding: 10px 16px;
   border-radius: 0px 2px 2px 0px;
 `;
@@ -217,6 +219,8 @@ const Hero = () => {
         <Formik
           initialValues={{ email: "" }}
           validationSchema={SignupSchema}
+          validateOnBlur={false}
+          validateOnChange={false}
           onSubmit={async (
             { email },
             { setSubmitting, setErrors, resetForm }
@@ -299,7 +303,7 @@ const Hero = () => {
           <h3>Welcome to the Tribe!</h3>
           <p>
             You are now on the waitlist. We'd really appreciate if you could
-            share Five Yards with your friends too
+            spread the word
           </p>
           <ul>
             <li className="twitter">
