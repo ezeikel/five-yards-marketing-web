@@ -53,8 +53,8 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 `;
 
 const StyledUiImage = styled(Img)`
-  width: 372px;
-  height: 252px;
+  min-width: 372px;
+  /* height: 252px; */
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
@@ -98,6 +98,8 @@ const SubmitButton = styled.button`
   color: ${({ error }) => (error ? "#ff4c4c" : "var(--color-white)")};
   background-color: ${({ error }) =>
     error ? "#b33237" : "var(--color-accent)"};
+  border: 1px solid
+    ${({ error }) => (error ? "#b33237" : "var(--color-accent)")};
   font-size: 14px;
   line-height: 2px;
   padding: 10px 16px;
@@ -170,14 +172,14 @@ const Hero = () => {
       }
       fabricImage: file(relativePath: { eq: "fabric.png" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 523) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      uiImage: file(relativePath: { eq: "app-ui.png" }) {
+      uiImage: file(relativePath: { eq: "app-ui-old.png" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 523) {
             ...GatsbyImageSharpFluid
           }
         }
