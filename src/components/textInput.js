@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 
 const Input = styled.input`
   position: relative;
+  line-height: normal;
 
   /* enlarge by 16/14 = 114.29% */
   border-radius: ${({ isIOS }) =>
@@ -21,6 +22,7 @@ const Input = styled.input`
   padding: 10px 16px;
   padding: ${({ isIOS }) => (isIOS ? "11.43px 18.29px" : "10px 16px")};
   font-size:  ${({ isIOS }) => (isIOS ? "16" : "14")}px;
+
 
   ${({ isIOS }) =>
     isIOS
