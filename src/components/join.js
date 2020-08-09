@@ -41,6 +41,7 @@ const CheckboxFeatures = styled.div`
         background: tomato;
       } */
       max-width: 129px;
+      font-weight: 600;
       &:first-of-type {
         margin-left: 44px;
       }
@@ -53,6 +54,7 @@ const Button = styled.button`
   color: var(--color-white);
   background-color: var(--color-accent);
   font-size: 14px;
+  font-weight: 600;
   /* line-height: 8px; */
   padding: 10px 16px;
   border-radius: 2px;

@@ -18,6 +18,7 @@ const Button = styled.button`
   color: var(--color-white);
   background-color: var(--color-accent);
   font-size: 14px;
+  font-weight: 600;
   padding: 10px 16px;
   border-radius: 2px;
 `;

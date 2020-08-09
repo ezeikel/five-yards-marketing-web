@@ -14,10 +14,7 @@ const Input = styled.input`
   /* enlarge by 16/14 = 114.29% */
   border-radius: ${({ isIOS }) =>
     isIOS ? "2.29px 0 0 2.29px" : " 2px 0px 0px 2px"};
-  border-radius: 2px 0px 0px 2px;
   border: ${({ isIOS }) => (isIOS ? "1.14" : "1")}px solid var(--color-grey);
-  padding: ${({ isIOS }) =>
-    isIOS ? "18.29px 9.14px 18.29px 21.72px" : "16px 8px 16px 19px"};
   width: ${({ isIOS }) => (isIOS ? "calc(100% / 0.88)" : "100%")};
   padding: ${({ isIOS }) => (isIOS ? "11.43px 18.29px" : "10px 16px")};
   font-size:  ${({ isIOS }) => (isIOS ? "16" : "14")}px;
@@ -31,7 +28,7 @@ const Input = styled.input`
     transform-origin: left top;
 
     /* remove extra white space */
-    margin-bottom: -5px;
+    margin-bottom: -6px;
     margin-right: calc(100% * 0.12);
   `
       : null};
@@ -95,7 +92,7 @@ const TextInput = ({ label, error, isIOS, ...props }) => {
     <Wrapper>
       <Input
         error={meta.touched && meta.error !== undefined}
-        isIOS={true}
+        isIOS={isIOS}
         {...field}
         {...props}
       />

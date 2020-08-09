@@ -53,7 +53,7 @@ const SocialLinks = styled.div`
     display: flex;
     flex-direction: row;
     li + li {
-      margin-left: 16px;
+      margin-left: 27px;
     }
   }
 `;

@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   background-color: var(--color-white);
   border-radius: 0 0 22px 22px;
+  box-shadow: 0px 0px 10px #00000029;
 `;
 
 const Note = styled.span`
@@ -15,6 +16,8 @@ const Note = styled.span`
   font-size: 20px;
   color: #04acba;
   margin-bottom: 12px;
+  opacity: 0.49;
+  font-weight: 500;
 `;
 
 const Heading = styled.h4`

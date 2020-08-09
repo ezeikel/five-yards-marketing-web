@@ -84,14 +84,6 @@ const StyledForm = styled(Form)`
   }
 `;
 
-const Error = styled.div`
-  align-self: flex-start;
-  font-size: 14px;
-  color: var(--color-red);
-  line-height: 20px;
-  margin: 10px 0 32px 19px;
-`;
-
 const SubmitButton = styled.button`
   flex: 0 0 auto;
   color: ${({ error }) => (error ? "#ff4c4c" : "var(--color-white)")};
@@ -100,13 +92,14 @@ const SubmitButton = styled.button`
   border: 1px solid
     ${({ error }) => (error ? "#b33237" : "var(--color-accent)")};
   font-size: 14px;
-  line-height: 2px;
+  font-weight: 600;
   padding: 10px 16px;
   border-radius: 0px 2px 2px 0px;
 `;
 
 const More = styled.span`
   font-size: 12px;
+  font-weight: 600;
   text-align: center;
   margin-bottom: 31px;
 `;
@@ -163,6 +156,7 @@ const Thanks = styled.div`
 `;
 
 const Hero = () => {
+  console.log({ isIOS });
   const data = useStaticQuery(graphql`
     query {
       contentfulHero(context: { eq: "Home" }) {
