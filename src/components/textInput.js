@@ -64,7 +64,7 @@ const TextInput = ({ label, error, isIOS, ...props }) => {
   return (
     <Wrapper>
       <Input
-        className={isIOS ? "ios" : null}
+        className={isIOS === true ? "ios" : null}
         error={meta.touched && meta.error !== undefined}
         isIOS={isIOS}
         {...field}
