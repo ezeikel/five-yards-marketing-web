@@ -10,19 +10,22 @@ const Wrapper = styled.div`
 const Input = styled.input`
   position: relative;
   line-height: normal;
-
-  /* enlarge by 16/14 = 114.29% */
-  border-radius: ${({ isIOS }) =>
-    isIOS ? "2.29px 0 0 2.29px" : " 2px 0px 0px 2px"};
-  border: ${({ isIOS }) => (isIOS ? "1.14" : "1")}px solid var(--color-grey);
-  width: ${({ isIOS }) => (isIOS ? "calc(100% / 0.88)" : "100%")};
-  padding: ${({ isIOS }) => (isIOS ? "11.43px 18.29px" : "10px 16px")};
-  font-size:  ${({ isIOS }) => (isIOS ? "16" : "14")}px;
-
+  border-radius: 2px 0px 0px 2px;
+  border: 1px solid var(--color-grey);
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 14px;
 
   ${({ isIOS }) =>
     isIOS
       ? `
+    /* enlarge by 16/14 = 114.29% */
+    border-radius: 2.29px 0 0 2.29px;
+    border: 1.14px solid var(--color-grey);
+    width: calc(100% / 0.88);
+    padding: 11.43px 18.29px;
+    font-size: 16px;
+
     /* scale down by 12/16 = 75% */
     transform: scale(0.88);
     transform-origin: left top;

@@ -156,7 +156,6 @@ const Thanks = styled.div`
 `;
 
 const Hero = () => {
-  console.log({ isIOS });
   const data = useStaticQuery(graphql`
     query {
       contentfulHero(context: { eq: "Home" }) {
