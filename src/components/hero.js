@@ -189,6 +189,8 @@ const Hero = () => {
     setIsOpen(false);
   };
 
+  console.log({ isIOS });
+
   return (
     <Wrapper>
       <AppPreview>
