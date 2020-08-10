@@ -10,11 +10,6 @@ const Wrapper = styled.div`
 const Input = styled.input`
   position: relative;
   line-height: normal;
-  border-radius: 2px 0px 0px 2px;
-  border: 1px solid var(--color-grey);
-  width: 100%;
-  padding: 10px 16px;
-  font-size: 14px;
 
   ${({ isIOS }) =>
     isIOS
@@ -34,7 +29,12 @@ const Input = styled.input`
     margin-bottom: -6px;
     margin-right: calc(100% * 0.12);
   `
-      : null};
+      : `
+    border-radius: 2px 0px 0px 2px;
+    border: 1px solid var(--color-grey);
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 14px;`};
 `;
 
 const Label = styled.label`

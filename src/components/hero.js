@@ -73,8 +73,6 @@ const StyledForm = styled(Form)`
   position: relative;
   input {
     flex: 1 0 auto;
-    /* border-right: none;
-    border-radius: 2px 0px 0px 2px; */
   }
   svg {
     position: absolute;
