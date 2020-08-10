@@ -35,38 +35,6 @@ const Input = styled.input`
     margin-right: calc(100% * 0.12);
   `
       : null};
-
-  ${({ error }) =>
-    error
-      ? `
-    background-color: #ff4c4c;
-    color: var(--color-white);
-    border: 1px solid transparent;
-
-    ::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */  114.29
-    color: var(--color-white);
-  }
-  ::-moz-placeholder {
-    /* Firefox 19+ */
-    color: var(--color-white);
-  }
-  :-ms-input-placeholder {
-    /* IE 10+ */
-    color: var(--color-white);
-  }
-  :-moz-placeholder {
-    /* Firefox 18- */
-    color: var(--color-white);
-  }
-  ::placeholder {
-    color: var(--color-white);
-  }
-  `
-      : null}
-  /* @media (min-width: 769px) {
-    margin-bottom: ${({ error }) => (error ? "0" : "32px")};
-  } */
 `;
 
 const Label = styled.label`
