@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { Formik, Form } from "formik";
@@ -53,7 +53,6 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 
 const StyledUiImage = styled(Img)`
   min-width: 372px;
-  /* height: 252px; */
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
@@ -178,6 +177,11 @@ const Hero = () => {
   `);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isIOSBrowser, setisIOSBrowser] = useState(isIOS);
+
+  useEffect(() => {
+    setisIOSBrowser(isIOS);
+  }, [isIOS]);
 
   const openModal = async () => {
     setIsOpen(true);
@@ -187,7 +191,7 @@ const Hero = () => {
     setIsOpen(false);
   };
 
-  console.log({ context: "hero", isIOS });
+  console.log({ context: "hero", isIOS, isIOSBrowser });
 
   return (
     <Wrapper>
@@ -264,7 +268,7 @@ const Hero = () => {
                 type="email"
                 placeholder="thomas@sankara.com"
                 error={errors.email}
-                isIOS={isIOS}
+                isIOS={isIOSBrowser}
               />
               <SubmitButton
                 error={errors.email}

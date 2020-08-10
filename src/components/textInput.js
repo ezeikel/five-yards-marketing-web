@@ -10,6 +10,7 @@ const Wrapper = styled.div`
 const Input = styled.input`
   position: relative;
   line-height: normal;
+  border-color: green;
 
   ${({ isIOS }) =>
     isIOS
@@ -64,7 +65,7 @@ const TextInput = ({ label, error, isIOS, ...props }) => {
   return (
     <Wrapper>
       <Input
-        className={isIOS === true ? "ios" : null}
+        className={isIOS ? "ios" : null}
         error={meta.touched && meta.error !== undefined}
         isIOS={isIOS}
         {...field}
