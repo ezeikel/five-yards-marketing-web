@@ -189,7 +189,7 @@ const Hero = () => {
     setIsOpen(false);
   };
 
-  console.log({ isIOS });
+  console.log({ context: "hero", isIOS });
 
   return (
     <Wrapper>

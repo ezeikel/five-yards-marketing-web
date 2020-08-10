@@ -91,6 +91,8 @@ const ErrorMessage = styled.span`
 const TextInput = ({ label, error, isIOS, ...props }) => {
   const [field, meta] = useField(props);
 
+  console.log({ context: "textInput", isIOS });
+
   return (
     <Wrapper>
       <Input
