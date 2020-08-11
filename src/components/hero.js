@@ -179,6 +179,7 @@ const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isIOSBrowser, setisIOSBrowser] = useState(false);
 
+  // FIX: react hydrate causing issues when using isIOS outside of lifecycle hook - https://github.com/gatsbyjs/gatsby/issues/9849
   useEffect(() => {
     setisIOSBrowser(isIOS);
   }, []);
@@ -190,8 +191,6 @@ const Hero = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
-
-  console.log({ context: "hero", isIOS, isIOSBrowser });
 
   return (
     <Wrapper>

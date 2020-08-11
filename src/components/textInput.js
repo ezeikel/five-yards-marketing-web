@@ -27,7 +27,7 @@ const Input = styled.input`
     transform-origin: left top;
 
     /* remove extra white space */
-    margin-bottom: -6px;
+    margin-bottom: -5px;
     margin-right: calc(100% * 0.12);
   `
       : `
@@ -60,12 +60,9 @@ const ErrorMessage = styled.span`
 const TextInput = ({ label, error, isIOS, ...props }) => {
   const [field, meta] = useField(props);
 
-  console.log({ context: "textInput", isIOS });
-
   return (
     <Wrapper>
       <Input
-        className={isIOS ? "ios" : null}
         error={meta.touched && meta.error !== undefined}
         isIOS={isIOS}
         {...field}
