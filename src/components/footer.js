@@ -12,6 +12,12 @@ const Wrapper = styled.footer`
   padding: 40px 0 40px;
   background-color: var(--color-black);
   color: var(--color-white);
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 140px 199px 1fr auto 140px;
+    grid-template-rows: auto auto;
+    grid-row-gap: 87px;
+  }
 `;
 
 const Logo = styled.div`
@@ -23,6 +29,13 @@ const Logo = styled.div`
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
+  }
+  @media (min-width: 768px) {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    align-self: start;
+    width: 199px;
+    height: 170px;px;
   }
 `;
 
@@ -36,6 +49,15 @@ const Links = styled.div`
   a {
     color: var(--color-white);
   }
+  @media (min-width: 768px) {
+    margin-left: 103px;
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+    font-size: 20px;
+    li + li {
+      margin-top: 20px;
+    }
+  }
 `;
 
 const SocialLinks = styled.div`
@@ -48,6 +70,9 @@ const SocialLinks = styled.div`
     line-height: 50px;
     margin-bottom: 20px;
     text-align: center;
+    @media (min-width: 768px) {
+      font-size: 35px;
+    }
   }
   > ul {
     display: flex;
@@ -56,12 +81,22 @@ const SocialLinks = styled.div`
       margin-left: 27px;
     }
   }
+  @media (min-width: 768px) {
+    grid-column: 4 / -2;
+    grid-row: 1 / span 1;
+  }
 `;
 
 const Copyright = styled.div`
   display: flex;
   font-size: 14px;
   color: #bebebe;
+  grid-row: 2 / -1;
+  grid-column: 2 / -2;
+  justify-self: end;
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const Footer = () => {
