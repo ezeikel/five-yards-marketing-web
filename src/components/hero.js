@@ -177,11 +177,11 @@ const Hero = () => {
   `);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [isIOSBrowser, setisIOSBrowser] = useState(isIOS);
+  const [isIOSBrowser, setisIOSBrowser] = useState(false);
 
   useEffect(() => {
     setisIOSBrowser(isIOS);
-  }, [isIOS]);
+  }, []);
 
   const openModal = async () => {
     setIsOpen(true);
