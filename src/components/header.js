@@ -12,6 +12,14 @@ const Wrapper = styled.header`
   svg {
     width: 124px;
   }
+  @media (min-width: 768px) {
+    margin-bottom: 50px;
+    height: 100%;
+    padding: 16px 0;
+    svg {
+      width: 190px;
+    }
+  }
 `;
 
 const Button = styled.button`
@@ -21,6 +29,11 @@ const Button = styled.button`
   font-weight: 600;
   padding: 10px 16px;
   border-radius: 2px;
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 31px;
+    padding: 16px 20px;
+  }
 `;
 
 const Header = () => (

@@ -20,6 +20,13 @@ const SignupSchema = Yup.object().shape({
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-column-gap: 32px;
+  }
 `;
 
 const Heading = styled.h1`
@@ -28,6 +35,11 @@ const Heading = styled.h1`
   line-height: 44px;
   color: var(--color-black);
   margin: 0 0 8px;
+  @media (min-width: 768px) {
+    font-size: 70px;
+    line-height: 80px;
+    margin: 0 0 20px;
+  }
 `;
 
 const Subheading = styled.h2`
@@ -36,6 +48,11 @@ const Subheading = styled.h2`
   line-height: 22px;
   font-weight: 400;
   margin: 0 0 16px;
+  @media (min-width: 768px) {
+    font-size: 25px;
+    line-height: 32px;
+    margin: 0 0 60px;
+  }
 `;
 
 const AppPreview = styled.div`
@@ -43,12 +60,22 @@ const AppPreview = styled.div`
   width: 100%;
   height: 256px;
   margin-bottom: 60px;
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+    height: auto;
+    grid-column: 2 / -1;
+    grid-row: 1 / span 1;
+  }
 `;
 
 const StyledBackgroundImage = styled(BackgroundImage)`
   width: 100%;
   display: flex;
   justify-content: center;
+  @media (min-width: 768px) {
+    width: 674px;
+    height: 782px;
+  }
 `;
 
 const StyledUiImage = styled(Img)`
@@ -58,6 +85,15 @@ const StyledUiImage = styled(Img)`
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
   transform: scale(0.9) translateY(40px);
+  @media (min-width: 768px) {
+    width: 523px;
+    height: 392px;
+    transform: none;
+    position: absolute !important;
+    top: 50%;
+    margin-top: -196px;
+    right: -30px;
+  }
 `;
 
 const CTA = styled.div`
@@ -65,6 +101,13 @@ const CTA = styled.div`
   flex-direction: column;
   margin: 0 0 32px;
   padding: 0 36px;
+  @media (min-width: 768px) {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    width: 100%;
+    max-width: 773px;
+    padding: 0;
+  }
 `;
 
 const StyledForm = styled(Form)`
@@ -92,6 +135,11 @@ const SubmitButton = styled.button`
   font-weight: 600;
   padding: 10px 16px;
   border-radius: 0px 2px 2px 0px;
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 31px;
+    padding: 16px 34px;
+  }
 `;
 
 const More = styled.span`
@@ -99,6 +147,12 @@ const More = styled.span`
   font-weight: 600;
   text-align: center;
   margin-bottom: 31px;
+  @media (min-width: 768px) {
+    grid-column: 1 / -1;
+    grid-row: 2 / -1;
+    font-size: 20px;
+    line-height: 30px;
+  }
 `;
 
 const Thanks = styled.div`

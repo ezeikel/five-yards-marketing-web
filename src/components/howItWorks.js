@@ -8,6 +8,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   background-color: #f7f8fc;
   padding: 40px 36px 40px;
+  @media (min-width: 768px) {
+    padding: 60px 66px 79px;
+    border-radius: 22px;
+  }
 `;
 
 const Heading = styled.h2`
@@ -15,6 +19,9 @@ const Heading = styled.h2`
   font-family: var(--secondary-font-family);
   font-weight: 700;
   margin: 0 0 32px;
+  @media (min-width: 768px) {
+    font-size: 70px;
+  }
 `;
 
 const HowItWorks = () => {

@@ -34,11 +34,25 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 70px 1fr auto;
   min-height: 100vh;
+
+  @media (min-width: 768px) {
+    grid-template-rows: 97px 1fr auto;
+    grid-template-columns: 70px 1fr 70px;
+    > * {
+      grid-column: 2 / -2;
+    }
+    > .full {
+      grid-column: 1 / -1;
+    }
+  }
 `;
 
 const Main = styled.main`
   display: flex;
   flex-direction: column;
+  @media (min-width: 768px) {
+    margin-top: 50px;
+  }
 `;
 
 const Layout = ({ children }) => {

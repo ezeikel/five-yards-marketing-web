@@ -16,6 +16,9 @@ const Label = styled.span`
   line-height: 30px;
   text-align: center;
   flex: 0 0 auto;
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const CarouselSlide = ({ data }) => {

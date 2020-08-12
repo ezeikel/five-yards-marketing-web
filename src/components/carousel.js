@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 23px;
+  width: 100%;
   .slick-list {
     margin-bottom: 71px;
   }
@@ -28,7 +29,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const Carousel = ({ items }) => {
+const Carousel = ({ items, activeSlide, setActiveSlide }) => {
+  const sliderEl = useRef(null);
+
+  useEffect(() => {
+    sliderEl.current.slickGoTo(activeSlide);
+  }, [activeSlide]);
+
   const settings = {
     dots: true,
     autoplay: true,
@@ -37,13 +44,22 @@ const Carousel = ({ items }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: false,
+        },
+      },
+    ],
+    beforeChange: (prev, next) => setActiveSlide(next),
   };
 
   // if (!items) return null;
 
   return (
     <Wrapper>
-      <Slider {...settings}>
+      <Slider {...settings} ref={sliderEl}>
         {items.map((item, index) => (
           <CarouselSlide key={index} data={item} />
         ))}

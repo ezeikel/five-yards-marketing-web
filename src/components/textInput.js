@@ -36,6 +36,11 @@ const Input = styled.input`
     width: 100%;
     padding: 10px 16px;
     font-size: 14px;`};
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 31px;
+    padding: 16px 34px;
+  }
 `;
 
 const Label = styled.label`
@@ -55,6 +60,11 @@ const ErrorMessage = styled.span`
   font-size: 14px;
   line-height: 16px;
   padding: 10px 16px;
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 31px;
+    padding: 16px 34px;
+  }
 `;
 
 const TextInput = ({ label, error, isIOS, ...props }) => {
