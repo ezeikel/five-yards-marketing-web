@@ -14,7 +14,9 @@ import { isIOS } from "react-device-detect";
 import GenericModal from "./genericModal";
 
 const SignupSchema = Yup.object().shape({
-  email: Yup.string().email("Need a valid email").required("Need an email"),
+  email: Yup.string()
+    .email("Your email doesn't look quite right")
+    .required("Enter an email"),
 });
 
 const Wrapper = styled.section`
@@ -75,6 +77,10 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   @media (min-width: 768px) {
     width: 674px;
     height: 782px;
+    &:before,
+    &:after {
+      border-radius: 4px;
+    }
   }
 `;
 
@@ -102,6 +108,7 @@ const CTA = styled.div`
   margin: 0 0 32px;
   padding: 0 36px;
   @media (min-width: 768px) {
+    justify-content: center;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
     width: 100%;
@@ -142,16 +149,26 @@ const SubmitButton = styled.button`
   }
 `;
 
-const More = styled.span`
+const More = styled.div`
   font-size: 12px;
   font-weight: 600;
   text-align: center;
   margin-bottom: 31px;
+  svg {
+    display: none;
+  }
   @media (min-width: 768px) {
     grid-column: 1 / -1;
     grid-row: 2 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 20px;
     line-height: 30px;
+    svg {
+      display: block;
+      flex: 0 1 auto;
+    }
   }
 `;
 
@@ -319,7 +336,7 @@ const Hero = () => {
               <TextInput
                 name="email"
                 type="email"
-                placeholder="thomas@sankara.com"
+                placeholder="Your email address"
                 error={errors.email}
                 isIOS={isIOSBrowser}
               />
@@ -342,7 +359,14 @@ const Hero = () => {
           )}
         </Formik>
       </CTA>
-      <More>SEE MORE</More>
+      <More>
+        <span>SEE MORE </span>
+        <FontAwesomeIcon
+          icon={["fal", "angle-down"]}
+          color="var(--color-black)"
+          size="lg"
+        />
+      </More>
       <GenericModal
         isOpen={isOpen}
         onRequestClose={closeModal}

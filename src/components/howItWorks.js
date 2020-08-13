@@ -21,6 +21,7 @@ const Heading = styled.h2`
   margin: 0 0 32px;
   @media (min-width: 768px) {
     font-size: 70px;
+    margin: 0 0 52px;
   }
 `;
 

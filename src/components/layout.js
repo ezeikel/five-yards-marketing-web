@@ -19,7 +19,11 @@ import {
   faInstagram,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
-import { faCheckCircle, faTimesCircle } from "@fortawesome/pro-light-svg-icons";
+import {
+  faCheckCircle,
+  faTimesCircle,
+  faAngleDown,
+} from "@fortawesome/pro-light-svg-icons";
 
 library.add(
   faFacebookF,
@@ -27,7 +31,8 @@ library.add(
   faInstagram,
   faWhatsapp,
   faCheckCircle,
-  faTimesCircle
+  faTimesCircle,
+  faAngleDown
 );
 
 const Wrapper = styled.div`

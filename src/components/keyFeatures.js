@@ -8,11 +8,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   padding: 40px 36px 40px;
   @media (min-width: 768px) {
-    flex-direction: row;
-
-    > div:first-of-type {
-      flex: 0 0 50%;
-    }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
   }
 `;
 
@@ -24,18 +22,24 @@ const Heading = styled.h2`
   @media (min-width: 768px) {
     font-size: 70px;
     line-height: 80px;
+    margin: 0 0 52px;
+    grid-column: 1 / -1;
+    grid-row: 1 / span 1;
   }
 `;
 
 const StyledCarousel = styled(Carousel)`
   @media (min-width: 768px) {
-    flex: 0 0 50%;
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
   }
 `;
 
 const SliderNav = styled.div`
   display: none;
   @media (min-width: 768px) {
+    grid-column: 1 / span 1;
+    grid-row: 2 / -1;
     display: flex;
   }
 `;
@@ -136,22 +140,20 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <div>
-        <Heading>Key features</Heading>
-        <SliderNav>
-          <SliderNavLinks>
-            {KEY_FEATURES.map((slide, i) => (
-              <li
-                onClick={() => handleClick(i)}
-                className={activeSlide === i ? "active" : ""}
-                key={i}
-              >
-                {slide.label}
-              </li>
-            ))}
-          </SliderNavLinks>
-        </SliderNav>
-      </div>
+      <Heading>Key features</Heading>
+      <SliderNav>
+        <SliderNavLinks>
+          {KEY_FEATURES.map((slide, i) => (
+            <li
+              onClick={() => handleClick(i)}
+              className={activeSlide === i ? "active" : ""}
+              key={i}
+            >
+              {slide.label}
+            </li>
+          ))}
+        </SliderNavLinks>
+      </SliderNav>
       <StyledCarousel
         activeSlide={activeSlide}
         setActiveSlide={setActiveSlide}

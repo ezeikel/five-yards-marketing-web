@@ -27,6 +27,14 @@ const Wrapper = styled.div`
       background-color: #04acba;
     }
   }
+  @media (min-width: 768px) {
+    max-width: 760px;
+    max-height: 430px;
+    padding-bottom: 0;
+    .slick-list {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 const Carousel = ({ items, activeSlide, setActiveSlide }) => {
@@ -37,7 +45,7 @@ const Carousel = ({ items, activeSlide, setActiveSlide }) => {
   }, [activeSlide]);
 
   const settings = {
-    dots: true,
+    dots: false,
     autoplay: true,
     arrows: false,
     infinite: true,
@@ -48,7 +56,7 @@ const Carousel = ({ items, activeSlide, setActiveSlide }) => {
       {
         breakpoint: 768,
         settings: {
-          dots: false,
+          dots: true,
         },
       },
     ],
