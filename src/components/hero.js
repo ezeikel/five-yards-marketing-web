@@ -176,9 +176,10 @@ const Thanks = styled.div`
   font-size: 12px;
   text-align: center;
   h3 {
+    font-family: var(--secondary-font-family);
+    font-weight: 800;
     font-size: 25px;
     line-height: 30px;
-    font-family: var(--secondary-font-family);
     margin: 0 0 29px;
   }
   p {
@@ -218,7 +219,40 @@ const Thanks = styled.div`
       }
     }
     li + li {
-      margin-top: 21px;
+      margin: 21px 0 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 70px;
+      line-height: 80px;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 25px;
+      line-height: 32px;
+      margin-bottom: 81px;
+    }
+
+    ul {
+      justify-content: center;
+      flex-direction: row;
+      li {
+        padding: 16px 33px;
+        max-width: 250px;
+        a {
+          font-size: 29px;
+          line-height: 45px;
+        }
+        svg {
+          margin-right: 30px;
+        }
+      }
+      li + li {
+        margin: 0 0 0 56px;
+      }
     }
   }
 `;

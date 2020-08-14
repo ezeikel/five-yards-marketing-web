@@ -32,14 +32,21 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     outline: 0;
 
     width: 100%;
-    padding: 20px;
+    padding: 30px;
     max-width: 640px;
     min-height: 200px;
     max-height: 921px;
+
+    @media (min-width: 768px) {
+      padding: 60px;
+      max-width: 1088px;
+      max-height: 564px;
+    }
   }
 `;
 
 const Body = styled.div`
+  width: 100%;
   overflow-y: scroll;
 `;
 
