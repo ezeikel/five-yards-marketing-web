@@ -36,7 +36,7 @@ const Logo = styled.div`
     grid-row: 1 / span 1;
     align-self: start;
     width: 199px;
-    height: 170px;px;
+    height: 170px;
   }
 `;
 
@@ -126,13 +126,19 @@ const Footer = () => {
       <Links>
         <ul>
           <li>
-            <OutboundLink href="">Privacy policy</OutboundLink>
+            <OutboundLink href="mailto:ezeikel@fiveyards.app">
+              Privacy policy
+            </OutboundLink>
           </li>
           <li>
-            <OutboundLink href="">Join the team</OutboundLink>
+            <OutboundLink href="mailto:ezeikel@fiveyards.app">
+              Join the team
+            </OutboundLink>
           </li>
           <li>
-            <OutboundLink href="">Get support</OutboundLink>
+            <OutboundLink href="mailto:ezeikel@fiveyards.app">
+              Get support
+            </OutboundLink>
           </li>
         </ul>
       </Links>
