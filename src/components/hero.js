@@ -12,6 +12,7 @@ import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import { isIOS } from "react-device-detect";
 import GenericModal from "./genericModal";
+import { Heading } from "./styles";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -31,15 +32,9 @@ const Wrapper = styled.section`
   }
 `;
 
-const Heading = styled.h1`
-  font-family: var(--secondary-font-family);
-  font-size: 35px;
-  line-height: 44px;
-  color: var(--color-black);
+const StyledHeading = styled(Heading)`
   margin: 0 0 8px;
   @media (min-width: 768px) {
-    font-size: 70px;
-    line-height: 80px;
     margin: 0 0 20px;
   }
 `;
@@ -317,7 +312,7 @@ const Hero = () => {
         </StyledBackgroundImage>
       </AppPreview>
       <CTA>
-        <Heading>{data.contentfulHero.heading}</Heading>
+        <StyledHeading>{data.contentfulHero.heading}</StyledHeading>
         <Subheading>{data.contentfulHero.subHeading}</Subheading>
         <Formik
           initialValues={{ email: "" }}
