@@ -50,7 +50,7 @@ const Label = styled.label`
 const ErrorMessage = styled.span`
   display: flex;
   align-items: center;
-  background-color: #ff4c4c;
+  background-color: var(--color-error-text)
   color: var(--color-white);
   position: absolute;
   top: 0;

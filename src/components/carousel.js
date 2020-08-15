@@ -18,13 +18,13 @@ const Wrapper = styled.div`
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background-color: #f0f0f0;
+      background-color: var(--color-caoursel-dots);
       &:before {
         content: "";
       }
     }
     .slick-active button {
-      background-color: #04acba;
+      background-color: var(--color-accent);
     }
   }
   @media (min-width: 768px) {

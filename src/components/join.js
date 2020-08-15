@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 40px 36px 40px;
-  background-color: #f7f8fc;
+  background-color: var(--color-background);
 
   @media (min-width: 768px) {
     display: grid;

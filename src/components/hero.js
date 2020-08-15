@@ -133,11 +133,12 @@ const StyledForm = styled(Form)`
 
 const SubmitButton = styled.button`
   flex: 0 0 auto;
-  color: ${({ error }) => (error ? "#ff4c4c" : "var(--color-white)")};
+  color: ${({ error }) =>
+    error ? "var(--color-error-text)" : "var(--color-white)"};
   background-color: ${({ error }) =>
-    error ? "#b33237" : "var(--color-accent)"};
+    error ? "var(--color-error)" : "var(--color-accent)"};
   border: 1px solid
-    ${({ error }) => (error ? "#b33237" : "var(--color-accent)")};
+    ${({ error }) => (error ? "var(--color-error)" : "var(--color-accent)")};
   font-size: 14px;
   font-weight: 600;
   padding: 10px 16px;
@@ -209,13 +210,13 @@ const Thanks = styled.div`
         flex: 0 0 auto;
       }
       &.twitter {
-        background-color: #3c9cd8;
+        background-color: var(--color-twitter);
       }
       &.facebook {
-        background-color: #395aa1;
+        background-color: var(--color-facebook);
       }
       &.whatsapp {
-        background-color: #23d366;
+        background-color: var(--color-whatsapp);
       }
     }
     li + li {

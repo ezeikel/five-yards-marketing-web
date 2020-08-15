@@ -91,7 +91,7 @@ const SocialLinks = styled.div`
 const Copyright = styled.div`
   display: flex;
   font-size: 14px;
-  color: #bebebe;
+  color: var(--color-grey-muted);
   grid-row: 2 / -1;
   grid-column: 2 / -2;
   justify-self: end;

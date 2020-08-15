@@ -6,7 +6,7 @@ import Cards from "./cards";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #f7f8fc;
+  background-color: var(--color-background);
   padding: 40px 36px 40px;
   @media (min-width: 768px) {
     padding: 60px 66px 79px;

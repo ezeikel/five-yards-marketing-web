@@ -19,7 +19,7 @@ const Note = styled.span`
   font-family: var(--secondary-font-family);
   display: flex;
   font-size: 20px;
-  color: #04acba;
+  color: var(--color-accent);
   margin-bottom: 12px;
   opacity: 0.49;
   font-weight: 500;
@@ -33,7 +33,7 @@ const Heading = styled.h4`
   font-family: var(--secondary-font-family);
   font-size: 28px;
   font-weight: 600;
-  color: #2f2f2f;
+  color: var(--color-black);
   margin: 0 0 8px;
   @media (min-width: 768px) {
     font-size: 30px;
@@ -44,7 +44,7 @@ const Heading = styled.h4`
 const Body = styled.p`
   font-size: 20px;
   line-height: 1.5;
-  color: #2f2f2f;
+  color: var(--color-black);
   margin-bottom: 8px;
   @media (min-width: 768px) {
     font-size: 20px;

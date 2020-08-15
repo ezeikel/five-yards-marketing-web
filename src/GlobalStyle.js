@@ -8,11 +8,18 @@ export default createGlobalStyle`
     /* Colors */
     --color-black: #2f2f2f;
     --color-white: #FFFFFF;
-    --color-red: #E52028;
+    --color-error-text: #ff4c4c;
+    --color-error: #b33237;
     --color-blue: #007BB7;
     --color-grey: #CCCCCC;
     --color-text: #2F2F2F;
     --color-accent: #04ACBA;
+    --color-background: #f7f8fc;
+    --color-caoursel-dots: #f0f0f0;
+    --color-grey-muted: #bebebe;
+    --color-twitter: #3c9cd8;
+    --color-facebook: #395aa1;
+    --color-whatsapp: #23d366;
     /* Spacing */
     --spacing-tiny: 4px;
     --spacing-small: 8px;

@@ -5,7 +5,7 @@ import Card from "./card";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #f7f8fc;
+  background-color: var(--color-background);
 
   > div + div {
     margin: 45px 0 0;
