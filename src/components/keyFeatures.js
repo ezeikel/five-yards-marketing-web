@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
+import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import Carousel from "./carousel";
 import { Heading } from "./styles";
 
@@ -132,7 +133,14 @@ const Header = () => {
     },
   ];
 
-  const handleClick = index => setActiveSlide(index);
+  const handleClick = index => {
+    setActiveSlide(index);
+    trackCustomEvent({
+      category: "Carousel",
+      action: `Navigation Click - ${index}`,
+      label: "Key Features Carousel",
+    });
+  };
 
   return (
     <Wrapper>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import CarouselSlide from "./carouselSlide";
 
 const Wrapper = styled.div`
@@ -61,6 +62,13 @@ const Carousel = ({ items, activeSlide, setActiveSlide }) => {
       },
     ],
     beforeChange: (prev, next) => setActiveSlide(next),
+    swipe: (slick, direction) => {
+      trackCustomEvent({
+        category: "Carousel",
+        action: `Swipe/Drag - ${direction}`,
+        label: "Key Features Carousel",
+      });
+    },
   };
 
   return (
