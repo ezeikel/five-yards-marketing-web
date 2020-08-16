@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const StyledHeading = styled.h1`
   font-family: var(--secondary-font-family);
-  color: var(--color-black);
   font-size: 35px;
   line-height: 44px;
   @media (min-width: 768px) {

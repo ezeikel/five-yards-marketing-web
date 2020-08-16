@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { Heading, Button } from "./styles";
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,18 +20,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const Heading = styled.h2`
-  font-size: 35px;
-  /* line-height: 44px; */
-  font-family: var(--secondary-font-family);
-  font-weight: 700;
+const StyledHeading = styled(Heading)`
   margin: 0 0 15px;
-
   @media (min-width: 768px) {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
     font-size: 60px;
-    /* line-height: 35px; */
+    line-height: 50px;
     margin: 0 0 25px;
   }
 `;
@@ -94,15 +90,8 @@ const CheckboxFeatures = styled.div`
   }
 `;
 
-const Button = styled.button`
+const StyledButton = styled(Button)`
   width: 100%;
-  color: var(--color-white);
-  background-color: var(--color-accent);
-  font-size: 14px;
-  font-weight: 600;
-  /* line-height: 8px; */
-  padding: 10px 16px;
-  border-radius: 2px;
   @media (min-width: 768px) {
     font-size: 25px;
     padding: 20px 67px;
@@ -126,7 +115,7 @@ const Join = () => {
 
   return (
     <Wrapper>
-      <Heading>Join the tribe. Sign up now</Heading>
+      <StyledHeading level={2}>Join the tribe. Sign up now</StyledHeading>
       <Body>
         Unlock what’s possible - with Five Yards. The marketplace that puts
         customers, fabric vendors and tailors all in one place.
@@ -144,7 +133,7 @@ const Join = () => {
         ))}
       </CheckboxFeatures>
       <StyledAnchorLink to="/#signup" title="Join the tribe">
-        <Button>Sign up now</Button>
+        <StyledButton>Sign up now</StyledButton>
       </StyledAnchorLink>
     </Wrapper>
   );

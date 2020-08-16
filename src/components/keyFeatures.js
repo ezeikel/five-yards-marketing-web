@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import Carousel from "./carousel";
+import { Heading } from "./styles";
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,14 +15,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const Heading = styled.h2`
-  font-size: 35px;
-  font-family: var(--secondary-font-family);
-  font-weight: 700;
+const StyledHeading = styled(Heading)`
   margin: 0 0 32px;
   @media (min-width: 768px) {
-    font-size: 70px;
-    line-height: 80px;
     margin: 0 0 52px;
     grid-column: 1 / -1;
     grid-row: 1 / span 1;
@@ -140,7 +136,7 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Heading>Key features</Heading>
+      <StyledHeading level={2}>Key features</StyledHeading>
       <SliderNav>
         <SliderNavLinks>
           {KEY_FEATURES.map((slide, i) => (

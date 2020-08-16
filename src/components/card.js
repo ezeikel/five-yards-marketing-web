@@ -33,7 +33,6 @@ const Heading = styled.h4`
   font-family: var(--secondary-font-family);
   font-size: 28px;
   font-weight: 600;
-  color: var(--color-black);
   margin: 0 0 8px;
   @media (min-width: 768px) {
     font-size: 30px;
@@ -44,7 +43,6 @@ const Heading = styled.h4`
 const Body = styled.p`
   font-size: 20px;
   line-height: 1.5;
-  color: var(--color-black);
   margin-bottom: 8px;
   @media (min-width: 768px) {
     font-size: 20px;

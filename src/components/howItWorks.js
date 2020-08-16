@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import Cards from "./cards";
+import { Heading } from "./styles";
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,13 +15,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const Heading = styled.h2`
-  font-size: 35px;
-  font-family: var(--secondary-font-family);
-  font-weight: 700;
+const StyledHeading = styled(Heading)`
   margin: 0 0 32px;
   @media (min-width: 768px) {
-    font-size: 70px;
     margin: 0 0 52px;
   }
 `;
@@ -80,7 +77,7 @@ const HowItWorks = () => {
 
   return (
     <Wrapper>
-      <Heading>How it works</Heading>
+      <StyledHeading level={2}>How it works</StyledHeading>
       <Cards items={STEPS} />
     </Wrapper>
   );

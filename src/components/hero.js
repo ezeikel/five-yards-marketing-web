@@ -12,7 +12,7 @@ import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import { isIOS } from "react-device-detect";
 import GenericModal from "./genericModal";
-import { Heading } from "./styles";
+import { Heading, Button } from "./styles";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -40,7 +40,6 @@ const StyledHeading = styled(Heading)`
 `;
 
 const Subheading = styled.h2`
-  color: var(--color-black);
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
@@ -126,23 +125,9 @@ const StyledForm = styled(Form)`
   }
 `;
 
-const SubmitButton = styled.button`
+const SubmitButton = styled(Button)`
   flex: 0 0 auto;
-  color: ${({ error }) =>
-    error ? "var(--color-error-text)" : "var(--color-white)"};
-  background-color: ${({ error }) =>
-    error ? "var(--color-error)" : "var(--color-accent)"};
-  border: 1px solid
-    ${({ error }) => (error ? "var(--color-error)" : "var(--color-accent)")};
-  font-size: 14px;
-  font-weight: 600;
-  padding: 10px 16px;
   border-radius: 0px 2px 2px 0px;
-  @media (min-width: 768px) {
-    font-size: 20px;
-    line-height: 31px;
-    padding: 16px 34px;
-  }
 `;
 
 const More = styled.div`

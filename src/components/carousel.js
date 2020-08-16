@@ -63,8 +63,6 @@ const Carousel = ({ items, activeSlide, setActiveSlide }) => {
     beforeChange: (prev, next) => setActiveSlide(next),
   };
 
-  // if (!items) return null;
-
   return (
     <Wrapper>
       <Slider {...settings} ref={sliderEl}>
