@@ -137,7 +137,7 @@ const Header = () => {
     setActiveSlide(index);
     trackCustomEvent({
       category: "Carousel",
-      action: `Navigation Click - ${index}`,
+      action: `Navigation Click - ${KEY_FEATURES[index].label}`,
       label: "Key Features Carousel",
     });
   };

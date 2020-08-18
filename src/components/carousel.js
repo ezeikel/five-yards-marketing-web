@@ -62,7 +62,7 @@ const Carousel = ({ items, activeSlide, setActiveSlide }) => {
       },
     ],
     beforeChange: (prev, next) => setActiveSlide(next),
-    swipe: (slick, direction) => {
+    onSwipe: direction => {
       trackCustomEvent({
         category: "Carousel",
         action: `Swipe/Drag - ${direction}`,

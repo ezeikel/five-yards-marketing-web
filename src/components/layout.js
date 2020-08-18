@@ -42,13 +42,17 @@ const Wrapper = styled.div`
 
   @media (min-width: 768px) {
     grid-template-rows: 97px 1fr auto;
-    grid-template-columns: 140px 1fr 140px;
+    grid-template-columns: 70px 1fr 70px;
     > * {
       grid-column: 2 / -2;
     }
     > .full {
       grid-column: 1 / -1;
     }
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 140px 1fr 140px;
   }
 `;
 

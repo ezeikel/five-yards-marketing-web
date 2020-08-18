@@ -14,7 +14,6 @@ const Wrapper = styled.header`
     width: 124px;
   }
   @media (min-width: 768px) {
-    margin-bottom: 50px;
     height: 100%;
     padding: 16px 0;
     svg {

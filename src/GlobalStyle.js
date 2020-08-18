@@ -37,6 +37,11 @@ export default createGlobalStyle`
     --font-size-huge: 2.2rem;
     --box-shadow: 0 3px 6px rgba(0,0,0, 0.16);
     --border-radius: 4px;
+    /* Breakpoints */
+    --breakpoint-sm: 480px; /* mobile devices */
+    --breakpoint-md: 768px; /* iPads, tablests */
+    --breakpoint-md: 1024px; /* small screens, laptops */
+    --breakpoint-lg: 1200px; /* extra large screens, TV */
   }
   * {
     box-sizing: border-box;

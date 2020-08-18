@@ -321,21 +321,27 @@ const Hero = () => {
 
             try {
               const result = await addToMailchimp(email, listData);
+
               if (result.result === "error") {
+                const errorMessage = result.msg.includes(
+                  "is already subscribed"
+                )
+                  ? "You're already on the list"
+                  : result.msg;
                 setErrors({
-                  email: result.msg,
+                  email: errorMessage,
                 });
                 trackCustomEvent({
-                  category: "Signup Form",
+                  category: "Form",
                   action: "Fail",
-                  label: "Gatsby Google Analytics Signup Form",
+                  label: "Signup Form",
                 });
                 setSubmitting(false);
               } else {
                 trackCustomEvent({
-                  category: "Signup Form",
+                  category: "Form",
                   action: "Success",
-                  label: "Gatsby Google Analytics Signup Form",
+                  label: "Signup Form",
                 });
                 setSubmitting(false);
                 resetForm();
