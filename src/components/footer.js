@@ -14,10 +14,16 @@ const Wrapper = styled.footer`
   color: var(--color-white);
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: 70px 199px 1fr auto 70px;
+    grid-template-columns: 35px 199px 1fr auto 35px;
     grid-template-rows: auto auto;
     grid-row-gap: 87px;
     padding: 50px 0 50px;
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: 70px 199px 1fr auto 79px;
+  }
+  @media (min-width: 1200px) {
+    grid-template-columns: 140px 199px 1fr auto 140px;
   }
 `;
 

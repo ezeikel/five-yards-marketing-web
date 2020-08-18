@@ -26,7 +26,7 @@ const Wrapper = styled.section`
 
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr auto;
     grid-column-gap: 32px;
   }
@@ -54,7 +54,6 @@ const Subheading = styled.h2`
 const AppPreview = styled.div`
   display: flex;
   width: 100%;
-  height: 256px;
   margin-bottom: 60px;
   @media (min-width: 768px) {
     justify-content: flex-end;
@@ -67,13 +66,12 @@ const AppPreview = styled.div`
 const StyledBackgroundImage = styled(BackgroundImage)`
   width: 100%;
   display: flex;
-  align-items: flex-end;
   justify-content: center;
-  /* padding: 20px 20px 0; */
   padding: 36px 36px 0;
   @media (min-width: 768px) {
-    width: 674px;
-    height: 782px;
+    padding: 36px;
+    height: 782px; /* TODO: replace fixed value */
+    align-items: center;
     &:before,
     &:after {
       border-radius: 4px;
@@ -83,24 +81,10 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 
 const StyledUiImage = styled(Img)`
   box-shadow: 0px 0px 10px #00000029;
-  margin-bottom: -36px;
+  margin: 0 0 -36px;
   width: 100%;
-  /* TODO: why do I have to do this? */
-  &.gatsby-image-wrapper {
-    width: 100%;
-    /* height: 100%; */
-  }
-  @media (min-width: 444px) {
-    min-width: 372px;
-  }
   @media (min-width: 768px) {
-    width: 523px;
-    height: 392px;
-    transform: none;
-    position: absolute !important;
-    top: 50%;
-    margin-top: -196px;
-    right: -30px;
+    margin: 0;
   }
 `;
 
@@ -114,7 +98,7 @@ const CTA = styled.div`
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
     width: 100%;
-    max-width: 773px;
+    max-width: 773px; /*TODO: replace fixed value */
     padding: 0;
   }
 `;
@@ -183,7 +167,7 @@ const Thanks = styled.div`
     li {
       width: 100%;
       padding: 10px 20px;
-      max-width: 160px;
+      max-width: 160px; /* TODO: replace fixed value */
       border-radius: 2px;
       a {
         display: flex;
@@ -230,7 +214,7 @@ const Thanks = styled.div`
       flex-direction: row;
       li {
         padding: 16px 33px;
-        max-width: 250px;
+        max-width: 250px; /* TODO: replace fixed value */
         a {
           font-size: 29px;
           line-height: 45px;
@@ -299,7 +283,8 @@ const Hero = () => {
           <StyledUiImage
             fluid={data.uiImage.childImageSharp.fluid}
             imgStyle={{
-              objectFit: "contain",
+              objectFit: "cover",
+              objectPosition: "top center",
             }}
           />
         </StyledBackgroundImage>
