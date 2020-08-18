@@ -42,7 +42,7 @@ const Wrapper = styled.div`
 
   @media (min-width: 768px) {
     grid-template-rows: 97px 1fr auto;
-    grid-template-columns: 70px 1fr 70px;
+    grid-template-columns: 140px 1fr 140px;
     > * {
       grid-column: 2 / -2;
     }

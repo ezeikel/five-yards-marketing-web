@@ -67,7 +67,10 @@ const AppPreview = styled.div`
 const StyledBackgroundImage = styled(BackgroundImage)`
   width: 100%;
   display: flex;
+  align-items: flex-end;
   justify-content: center;
+  /* padding: 20px 20px 0; */
+  padding: 36px 36px 0;
   @media (min-width: 768px) {
     width: 674px;
     height: 782px;
@@ -79,12 +82,17 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 `;
 
 const StyledUiImage = styled(Img)`
-  min-width: 372px;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-  transform: scale(0.9) translateY(40px);
+  box-shadow: 0px 0px 10px #00000029;
+  margin-bottom: -36px;
+  width: 100%;
+  /* TODO: why do I have to do this? */
+  &.gatsby-image-wrapper {
+    width: 100%;
+    /* height: 100%; */
+  }
+  @media (min-width: 444px) {
+    min-width: 372px;
+  }
   @media (min-width: 768px) {
     width: 523px;
     height: 392px;
@@ -291,7 +299,7 @@ const Hero = () => {
           <StyledUiImage
             fluid={data.uiImage.childImageSharp.fluid}
             imgStyle={{
-              objectFit: "cover",
+              objectFit: "contain",
             }}
           />
         </StyledBackgroundImage>
