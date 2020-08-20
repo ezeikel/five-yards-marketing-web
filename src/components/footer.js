@@ -19,12 +19,12 @@ const Wrapper = styled.footer`
     grid-row-gap: 87px;
     padding: 50px 0 50px;
   }
-  @media (min-width: 1024px) {
+  /* @media (min-width: 1024px) {
     grid-template-columns: 70px 199px 1fr auto 79px;
   }
   @media (min-width: 1200px) {
     grid-template-columns: 140px 199px 1fr auto 140px;
-  }
+  } */
 `;
 
 const Logo = styled.div`

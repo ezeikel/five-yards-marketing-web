@@ -51,12 +51,12 @@ const Wrapper = styled.div`
     }
   }
 
-  @media (min-width: 1024px) {
+  /* @media (min-width: 1024px) {
     grid-template-columns: 70px 1fr 70px;
   }
   @media (min-width: 1200px) {
     grid-template-columns: 140px 1fr 140px;
-  }
+  } */
 `;
 
 const Main = styled.main`
