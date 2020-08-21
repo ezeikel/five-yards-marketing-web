@@ -57,6 +57,7 @@ const AppPreview = styled.div`
   margin-bottom: 60px;
   @media (min-width: 768px) {
     justify-content: flex-end;
+    padding-right: 66px;
     height: auto;
     grid-column: 2 / -1;
     grid-row: 1 / span 1;
@@ -85,6 +86,9 @@ const StyledUiImage = styled(Img)`
   width: 100%;
   @media (min-width: 768px) {
     margin: 0;
+    transform: translateX(
+      102px
+    ); /* 36px + 66px to match existing page padding */
   }
 `;
 
