@@ -92,7 +92,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: title.siteMetadata.ogTitle,
+          content: site.siteMetadata.ogTitle,
         },
         {
           name: `twitter:description`,
