@@ -1,8 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `Five Yards - Traditional wear. Untraditional approach`,
+    title: `Five Yards - Untraditionally traditional.`,
+    ogTitle: `Revolutionising the process of getting traditional sewn.`,
     description: `Find the finest fabrics and most talented tailors all over the world and manage the process of getting traditional garments sewn all through one app.`,
     author: `@fiveyardsapp`,
+    url: `https://get.fiveyardsapp.app`,
+    secureUrl: `https://get.fiveyards.app`,
+    image: `https://api.sparksapp.io/images/sparks-og-image.png`,
+    twitterImage: `https://api.sparksapp.io/images/twitter-card.png`,
+    locale: `en_GB`,
+    name: `Five Yards`,
   },
   plugins: [
     {
