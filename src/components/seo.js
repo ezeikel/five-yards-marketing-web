@@ -17,7 +17,7 @@ function SEO({ description, lang, meta, title }) {
         site {
           siteMetadata {
             title
-            OgTitle
+            ogTitle
             description
             author
             url
