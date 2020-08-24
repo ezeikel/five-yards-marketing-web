@@ -55,6 +55,26 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          property: `og:url`,
+          content: site.siteMetadata.url,
+        },
+        {
+          property: `og:image`,
+          content: site.siteMetadata.image,
+        },
+        {
+          property: `og:secure_url`,
+          content: site.siteMetadata.secureUrl,
+        },
+        {
+          property: `og:locale`,
+          content: site.siteMetadata.locale,
+        },
+        {
+          property: `og:site_name`,
+          content: site.siteMetadata.name,
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
@@ -63,16 +83,24 @@ function SEO({ description, lang, meta, title }) {
           content: `summary`,
         },
         {
+          name: `twitter:site`,
+          content: metaDescription,
+        },
+        {
           name: `twitter:creator`,
           content: site.siteMetadata.author,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: title.siteMetadata.ogTitle,
         },
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: site.siteMetadata.twitterImage,
         },
       ].concat(meta)}
     />
