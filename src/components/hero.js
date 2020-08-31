@@ -45,6 +45,11 @@ const Subheading = styled.h2`
   font-weight: 400;
   margin: 0 0 16px;
   @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 0 39px;
+  }
+  @media (min-width: 1280px) {
     font-size: 25px;
     line-height: 32px;
     margin: 0 0 60px;
@@ -248,7 +253,7 @@ const Hero = () => {
           }
         }
       }
-      uiImage: file(relativePath: { eq: "app-ui-old.png" }) {
+      uiImage: file(relativePath: { eq: "app-ui.png" }) {
         childImageSharp {
           fluid(maxWidth: 523) {
             ...GatsbyImageSharpFluid
@@ -309,7 +314,10 @@ const Hero = () => {
             const listData = {};
 
             try {
-              const result = await addToMailchimp(email, listData);
+              const result = await addToMailchimp(
+                email.toLowerCase(),
+                listData
+              );
 
               if (result.result === "error") {
                 const errorMessage = result.msg.includes(
