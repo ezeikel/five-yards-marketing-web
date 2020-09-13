@@ -181,7 +181,8 @@ const Footer = () => {
         </ul>
       </SocialLinks>
       <Copyright>
-        &copy; Copyright 2020 Five Yards, all rights reserved.
+        &copy; Copyright {new Date().getFullYear()} Five Yards, all rights
+        reserved.
       </Copyright>
     </Wrapper>
   );

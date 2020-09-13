@@ -9,12 +9,12 @@ const Button = styled.button`
     ${({ error }) => (error ? "var(--color-error)" : "var(--color-accent)")};
   font-size: 14px;
   font-weight: 600;
-  padding: 10px 16px;
+  padding: 10px 20px;
   border-radius: 2px;
-  @media (min-width: 768px) {
+  @media (min-width: 1280px) {
     font-size: 20px;
     line-height: 31px;
-    padding: 16px 34px;
+    padding: 16px 20px;
   }
 `;
 

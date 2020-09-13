@@ -6,6 +6,10 @@ const StyledHeading = styled.h1`
   font-size: 35px;
   line-height: 44px;
   @media (min-width: 768px) {
+    font-size: 44px;
+    line-height: 50px;
+  }
+  @media (min-width: 1280px) {
     font-size: 70px;
     line-height: 80px;
   }

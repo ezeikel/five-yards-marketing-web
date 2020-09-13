@@ -36,7 +36,7 @@ const Input = styled.input`
     width: 100%;
     padding: 10px 16px;
     font-size: 14px;`};
-  @media (min-width: 768px) {
+  @media (min-width: 1280px) {
     font-size: 20px;
     line-height: 31px;
     padding: 16px 34px;

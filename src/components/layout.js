@@ -63,6 +63,9 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   @media (min-width: 768px) {
+    margin-top: 32px;
+  }
+  @media (min-width: 1280px) {
     margin-top: 50px;
   }
 `;

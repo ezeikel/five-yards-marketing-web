@@ -16,6 +16,8 @@ const Wrapper = styled.header`
   @media (min-width: 768px) {
     height: 100%;
     padding: 35px 0 0;
+  }
+  @media (min-width: 1280px) {
     svg {
       width: 190px;
     }
@@ -24,7 +26,7 @@ const Wrapper = styled.header`
 
 const StyledButton = styled(Button)`
   @media (min-width: 768px) {
-    padding: 16px 20px;
+    /*padding: 16px 20px;*/
   }
 `;
 

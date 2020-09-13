@@ -26,6 +26,8 @@ const StyledHeading = styled(Heading)`
   @media (min-width: 768px) {
     margin: 0 0 20px;
   }
+  @media (min-width: 1280px) {
+  }
 `;
 
 const Subheading = styled.h2`
@@ -62,10 +64,10 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 36px 36px 0;
+  padding: 20px 20px 0;
   @media (min-width: 768px) {
     padding: 36px;
-    height: 782px; /* TODO: replace fixed value */
+    /* height: 782px; TODO: replace fixed value */
     align-items: center;
     &:before,
     &:after {
@@ -106,6 +108,7 @@ const More = styled.div`
   font-weight: 600;
   text-align: center;
   margin-bottom: 31px;
+  text-transform: uppercase;
   svg {
     display: none;
   }
@@ -115,12 +118,14 @@ const More = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 20px;
-    line-height: 30px;
     svg {
       display: block;
       flex: 0 1 auto;
     }
+  }
+  @media (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 30px;
   }
 `;
 
@@ -268,7 +273,7 @@ const Hero = () => {
         <SignupForm openModal={openModal} />
       </CTA>
       <More>
-        <span>SEE MORE</span>
+        <span>See more</span>
         <FontAwesomeIcon
           icon={["fal", "angle-down"]}
           color="var(--color-black)"
