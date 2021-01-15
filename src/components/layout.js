@@ -37,7 +37,7 @@ library.add(
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 70px 1fr auto;
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 
   @media (min-width: 768px) {

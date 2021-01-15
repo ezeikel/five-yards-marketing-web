@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
-import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import Carousel from "./carousel";
 import { Heading } from "./styles";
 
@@ -55,7 +54,7 @@ const SliderNavLinks = styled.ul`
         margin-top: 56px;
       }
       &.active {
-        color: var(--color-accent);
+        color: var(--color-primary);
         box-shadow: 0px 0px 15px #00000015;
       }
     }
@@ -135,7 +134,7 @@ const Header = () => {
 
   const handleClick = index => {
     setActiveSlide(index);
-    trackCustomEvent({
+    window.gtag("event", "click", {
       category: "Carousel",
       action: `Navigation Click - ${KEY_FEATURES[index].label}`,
       label: "Key Features Carousel",

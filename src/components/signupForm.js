@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { trackCustomEvent } from "gatsby-plugin-google-analytics";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { isIOS } from "react-device-detect";
-import { Button } from "./styles";
+import Button from "./Button";
 import TextInput from "./textInput";
 
 const SignupSchema = Yup.object().shape({
@@ -15,109 +12,105 @@ const SignupSchema = Yup.object().shape({
     .required("Enter an email"),
 });
 
-const StyledForm = styled(Form)`
+const Wrapper = styled.div`
   display: flex;
-  position: relative;
-  input {
-    flex: 1 0 auto;
-  }
-  svg {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    margin-top: -10px;
+  margin-bottom: var(--spacing-medium);
+
+  @media (min-width: 768px) {
+    max-width: 400px;
   }
 `;
 
-const SubmitButton = styled(Button)`
-  flex: 0 0 auto;
-  border-radius: 0px 2px 2px 0px;
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-medium);
+`;
+
+const StyledForm = styled(Form)`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .text-input + .text-input {
+    margin-top: var(--spacing-medium);
+  }
 `;
 
 const SignupForm = ({ openModal }) => {
-  const [isIOSBrowser, setisIOSBrowser] = useState(false);
-
-  // FIX: react hydrate causing issues when using isIOS outside of lifecycle hook - https://github.com/gatsbyjs/gatsby/issues/9849
-  useEffect(() => {
-    setisIOSBrowser(isIOS);
-  }, []);
-
   return (
-    <Formik
-      initialValues={{ email: "" }}
-      validationSchema={SignupSchema}
-      validateOnBlur={false}
-      validateOnChange={false}
-      onSubmit={async ({ email }, { setSubmitting, setErrors, resetForm }) => {
-        // extra info to send to mailchimp
-        const listData = {};
+    <Wrapper>
+      <Formik
+        initialValues={{ email: "" }}
+        validationSchema={SignupSchema}
+        validateOnBlur={false}
+        validateOnChange={false}
+        onSubmit={async (
+          { email },
+          { setSubmitting, setErrors, resetForm }
+        ) => {
+          // extra info to send to mailchimp
+          const listData = {};
 
-        try {
-          const result = await addToMailchimp(email, listData);
+          try {
+            const result = await addToMailchimp(email, listData);
 
-          if (result.result === "error") {
-            const errorMessage = result.msg.includes("is already subscribed")
-              ? "You're already on the list"
-              : result.msg;
-            setErrors({
-              email: errorMessage,
-            });
-            trackCustomEvent({
-              category: "Form",
-              action: "Fail",
-              label: "Signup Form",
-            });
+            if (result.result === "error") {
+              const errorMessage = result.msg.includes("is already subscribed")
+                ? "You're already on the list"
+                : result.msg;
+              setErrors({
+                email: errorMessage,
+              });
+
+              window.gtag("event", "click", {
+                category: "Form",
+                action: "Fail",
+                label: "Signup Form",
+              });
+              setSubmitting(false);
+            } else {
+              window.gtag("event", "click", {
+                category: "Form",
+                action: "Success",
+                label: "Signup Form",
+              });
+
+              setSubmitting(false);
+              resetForm();
+
+              // open thank you modal
+              openModal();
+            }
+          } catch (e) {
+            if (e.message === "Timeout") {
+              setErrors({
+                email:
+                  "Looks like you are using an add blocking browser that's preventing this form from being submitted - please temporarily toggle off the 'Ads and trackers blocked' settings and then re-submit the form.",
+              });
+            }
             setSubmitting(false);
-          } else {
-            trackCustomEvent({
-              category: "Form",
-              action: "Success",
-              label: "Signup Form",
-            });
-            setSubmitting(false);
-            resetForm();
-
-            // open thank you modal
-            openModal();
           }
-        } catch (e) {
-          if (e.message === "Timeout") {
-            setErrors({
-              email:
-                "Looks like you are using an add blocking browser that's preventing this form from being submitted - please temporarily toggle off the 'Ads and trackers blocked' settings and then re-submit the form.",
-            });
-          }
-          setSubmitting(false);
-        }
-      }}
-    >
-      {({ isSubmitting, errors, setErrors }) => (
-        <StyledForm id="signup">
-          <TextInput
-            name="email"
-            type="email"
-            placeholder="Your email address"
-            error={errors.email}
-            isIOS={isIOSBrowser}
-          />
-          <SubmitButton
-            error={errors.email}
-            type="submit"
-            disabled={errors.email}
-          >
-            {isSubmitting ? "Signing up" : "Sign up"}
-          </SubmitButton>
-          {errors.email && (
-            <FontAwesomeIcon
-              icon={["fal", "times-circle"]}
-              color="var(--color-white)"
-              size="2x"
-              onClick={() => setErrors({})}
+        }}
+      >
+        {({ isSubmitting, errors, setErrors }) => (
+          <StyledForm id="signup">
+            <InputWrapper>
+              <TextInput
+                name="email"
+                placeholder="Your email address"
+                type="email"
+              />
+            </InputWrapper>
+            <Button
+              primary
+              type="submit"
+              disabled={isSubmitting}
+              text={`Sign${isSubmitting ? "ing" : ""} up`}
             />
-          )}
-        </StyledForm>
-      )}
-    </Formik>
+          </StyledForm>
+        )}
+      </Formik>
+    </Wrapper>
   );
 };
 
