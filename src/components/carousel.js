@@ -8,8 +8,10 @@ import CarouselSlide from "./carouselSlide";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 23px;
+  padding-bottom: var(--spacing-large);
   width: 100%;
+  max-width: 100%;
+  max-height: 100%;
   .slick-list {
     margin-bottom: 71px;
   }
@@ -62,11 +64,12 @@ const Carousel = ({ items, activeSlide, setActiveSlide }) => {
     ],
     beforeChange: (prev, next) => setActiveSlide(next),
     onSwipe: direction => {
-      window.gtag("event", "click", {
-        category: "Carousel",
-        action: `Swipe/Drag - ${direction}`,
-        label: "Key Features Carousel",
-      });
+      // TODO: fix tracking events
+      // window.gtag("event", "click", {
+      //   category: "Carousel",
+      //   action: `Swipe/Drag - ${direction}`,
+      //   label: "Key Features Carousel",
+      // });
     },
   };
 

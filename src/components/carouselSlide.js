@@ -5,10 +5,12 @@ import Img from "gatsby-image";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  border: 10px solid red;
 `;
 
 const StyledImg = styled(Img)`
-  margin-bottom: 32px;
+  margin-bottom: var(--spacing-large);
 `;
 
 const Label = styled.span`

@@ -7,7 +7,7 @@ import { Heading } from "./styles";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 40px 36px 40px;
+  padding: var(--spacing-large);
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
