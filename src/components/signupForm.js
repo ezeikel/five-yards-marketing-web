@@ -3,7 +3,7 @@ import styled from "styled-components";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import Button from "./Button";
+import Button from "./button";
 import TextInput from "./textInput";
 
 const SignupSchema = Yup.object().shape({

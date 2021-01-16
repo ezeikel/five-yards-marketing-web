@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { Heading } from "./styles";
-import Button from "./Button";
+import Button from "./button";
 
 const Wrapper = styled.div`
   display: flex;
