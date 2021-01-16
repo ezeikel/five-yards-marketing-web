@@ -54,7 +54,7 @@ const SliderNavLinks = styled.ul`
       }
       &.active {
         color: var(--color-primary);
-        box-shadow: 0px 0px 15px #00000015;
+        box-shadow: var(--box-shadow);
       }
     }
   }

@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   background-color: var(--color-white);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
-  box-shadow: 0px 0px 10px #00000029;
+  box-shadow: var(--box-shadow);
 
   @media (min-width: 768px) {
     flex: 1 1 33.33%;

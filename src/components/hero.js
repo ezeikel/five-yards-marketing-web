@@ -58,7 +58,8 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 `;
 
 const StyledUiImage = styled(Img)`
-  box-shadow: 0px 0px 10px #00000029;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
   margin: 0 0 calc(var(--spacing-large) * -1);
   width: 100%;
   @media (min-width: 768px) {
