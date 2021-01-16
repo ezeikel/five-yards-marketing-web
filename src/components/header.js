@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import Button from "./button";
-import LogoWithMainTextHorizontal from "./svgs/LogoWithMainTextHorizontal";
+import LogoWithMainTextHorizontal from "./svgs/logoWithMainTextHorizontal";
 
 const Wrapper = styled.header`
   display: flex;

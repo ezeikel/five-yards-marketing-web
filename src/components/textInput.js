@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { useField } from "formik";
 import styled from "styled-components";
-import Error from "./Error";
-import Icon from "./Icon";
+import Error from "./error";
+import Icon from "./icon";
 
 const Wrapper = styled.div`
   position: relative;
