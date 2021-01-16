@@ -23,16 +23,15 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     background: rgba(0, 0, 0, 0.5);
     display: grid;
     place-items: center;
-    padding: 20px;
+    padding: var(--spacing-large);
   }
   .modal {
     display: flex;
     background-color: var(--color-white);
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     outline: 0;
-
     width: 100%;
-    padding: 30px;
+    padding: var(--spacing-large);
     max-width: 640px;
     min-height: 200px;
     max-height: 921px;

@@ -50,7 +50,7 @@ const CheckboxFeatures = styled.div`
   flex-direction: column;
   font-size: 2rem;
   line-height: 25px;
-  margin-bottom: var(--spacing-large);
+  margin-bottom: var(--spacing-huge);
   > div {
     display: flex;
     align-items: center;

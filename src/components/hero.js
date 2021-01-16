@@ -31,7 +31,7 @@ const Subheading = styled.h2`
 const AppPreview = styled.div`
   display: flex;
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: var(--spacing-large);
   @media (min-width: 768px) {
     justify-content: flex-end;
     padding-right: 66px;
@@ -45,7 +45,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px 20px 0;
+  padding: var(--spacing-large) var(--spacing-large) 0;
   @media (min-width: 768px) {
     padding: var(--spacing-large);
     /* height: 782px; TODO: replace fixed value */
@@ -59,7 +59,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 
 const StyledUiImage = styled(Img)`
   box-shadow: 0px 0px 10px #00000029;
-  margin: 0 0 -36px;
+  margin: 0 0 calc(var(--spacing-large) * -1);
   width: 100%;
   @media (min-width: 768px) {
     margin: 0;
@@ -72,7 +72,7 @@ const StyledUiImage = styled(Img)`
 const CTA = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 var(--spacing-large) var(--spacing-large);
+  padding: var(--spacing-large);
   @media (min-width: 768px) {
     justify-content: center;
     grid-column: 1 / span 1;
@@ -94,9 +94,9 @@ const Thanks = styled.div`
     margin: 0 0 29px;
   }
   p {
-    font-size: 1.6rem;
-    line-height: 21px;
-    margin: 0 0 31px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin: 0 0 var(--spacing-large);
   }
   ul {
     display: flex;
@@ -104,9 +104,8 @@ const Thanks = styled.div`
     align-items: center;
     li {
       width: 100%;
-      padding: 10px 20px;
-      max-width: 160px; /* TODO: replace fixed value */
-      border-radius: 2px;
+      padding: var(--spacing-small) var(--spacing-medium);
+      border-radius: var(--border-radius);
       a {
         display: flex;
         align-items: center;
@@ -130,7 +129,7 @@ const Thanks = styled.div`
       }
     }
     li + li {
-      margin: 21px 0 0;
+      margin: var(--spacing-medium) 0 0;
     }
   }
 
@@ -234,7 +233,7 @@ const Hero = () => {
         close={closeModal}
       >
         <Thanks>
-          <h3>Welcome to the Tribe!</h3>
+          <Heading>Welcome to the Tribe!</Heading>
           <p>
             You are now on the waitlist. We'd really appreciate if you could
             spread the word
