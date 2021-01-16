@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--color-white);
-  border-radius: 0 0 22px 22px;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: 0px 0px 10px #00000029;
 
   @media (min-width: 768px) {
@@ -16,10 +16,10 @@ const Wrapper = styled.div`
 `;
 
 const Note = styled.span`
-  font-family: var(--secondary-font-family);
+  font-family: var(--font-family-secondary);
   display: flex;
   font-size: 20px;
-  color: var(--color-accent);
+  color: var(--color-primary);
   margin-bottom: 12px;
   opacity: 0.49;
   font-weight: 500;
@@ -30,7 +30,7 @@ const Note = styled.span`
 `;
 
 const Heading = styled.h4`
-  font-family: var(--secondary-font-family);
+  font-family: var(--font-family-secondary);
   font-size: 28px;
   font-weight: 600;
   margin: 0 0 8px;

@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import BackgroundImage from "gatsby-background-image";
 import Img from "gatsby-image";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import GenericModal from "./genericModal";
 import { Heading } from "./styles";
@@ -21,20 +21,11 @@ const Wrapper = styled.section`
   }
 `;
 
-const StyledHeading = styled(Heading)`
-  margin: 0 0 8px;
-  @media (min-width: 768px) {
-    margin: 0 0 20px;
-  }
-  @media (min-width: 1280px) {
-  }
-`;
-
 const Subheading = styled.h2`
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
-  margin: 0 0 16px;
+  margin: 0 0 var(--spacing-huge);
   @media (min-width: 768px) {
     font-size: 16px;
     line-height: 20px;
@@ -100,32 +91,6 @@ const CTA = styled.div`
     width: 100%;
     max-width: 773px; /*TODO: replace fixed value */
     padding: 0;
-  }
-`;
-
-const More = styled.div`
-  font-size: 12px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 31px;
-  text-transform: uppercase;
-  svg {
-    display: none;
-  }
-  @media (min-width: 768px) {
-    grid-column: 1 / -1;
-    grid-row: 2 / -1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    svg {
-      display: block;
-      flex: 0 1 auto;
-    }
-  }
-  @media (min-width: 1280px) {
-    font-size: 20px;
-    line-height: 30px;
   }
 `;
 
@@ -268,18 +233,10 @@ const Hero = () => {
         </StyledBackgroundImage>
       </AppPreview>
       <CTA>
-        <StyledHeading>{data.contentfulHero.heading}</StyledHeading>
+        <Heading>{data.contentfulHero.heading}</Heading>
         <Subheading>{data.contentfulHero.subHeading}</Subheading>
         <SignupForm openModal={openModal} />
       </CTA>
-      <More>
-        <span>See more</span>
-        <FontAwesomeIcon
-          icon={["fal", "angle-down"]}
-          color="var(--color-black)"
-          size="lg"
-        />
-      </More>
       <GenericModal
         isOpen={isOpen}
         onRequestClose={closeModal}

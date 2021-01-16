@@ -3,14 +3,15 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import CarouselSlide from "./carouselSlide";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 23px;
+  padding-bottom: var(--spacing-large);
   width: 100%;
+  max-width: 100%;
+  max-height: 100%;
   .slick-list {
     margin-bottom: 71px;
   }
@@ -25,7 +26,7 @@ const Wrapper = styled.div`
       }
     }
     .slick-active button {
-      background-color: var(--color-accent);
+      background-color: var(--color-primary);
     }
   }
   @media (min-width: 768px) {
@@ -63,11 +64,12 @@ const Carousel = ({ items, activeSlide, setActiveSlide }) => {
     ],
     beforeChange: (prev, next) => setActiveSlide(next),
     onSwipe: direction => {
-      trackCustomEvent({
-        category: "Carousel",
-        action: `Swipe/Drag - ${direction}`,
-        label: "Key Features Carousel",
-      });
+      // TODO: fix tracking events
+      // window.gtag("event", "click", {
+      //   category: "Carousel",
+      //   action: `Swipe/Drag - ${direction}`,
+      //   label: "Key Features Carousel",
+      // });
     },
   };
 

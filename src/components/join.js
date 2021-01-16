@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-import { Heading, Button } from "./styles";
+import { Heading } from "./styles";
+import Button from "./button";
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,8 +15,9 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto auto;
+    grid-column-gap: var(--spacing-large);
     margin-bottom: 127px;
-    border-radius: 22px;
+    border-radius: var(--border-radius);
     padding: 60px 60px 69px;
   }
 `;
@@ -90,16 +92,13 @@ const CheckboxFeatures = styled.div`
   }
 `;
 
-const StyledButton = styled(Button)`
-  width: 100%;
-  @media (min-width: 768px) {
-    font-size: 25px;
-    padding: 20px 67px;
-  }
-`;
-
 const StyledAnchorLink = styled(AnchorLink)`
+  button {
+    width: 100%;
+  }
+
   @media (min-width: 768px) {
+    width: 100%;
     grid-column: 2 / -1;
     grid-row: 1 / -1;
     place-self: center;
@@ -125,7 +124,7 @@ const Join = () => {
           <div key={index}>
             <FontAwesomeIcon
               icon={["fal", "check-circle"]}
-              color="var(--color-accent)"
+              color="var(--color-primary)"
               size="2x"
             />
             <span>{feature}</span>
@@ -133,7 +132,7 @@ const Join = () => {
         ))}
       </CheckboxFeatures>
       <StyledAnchorLink to="/#signup" title="Join the tribe">
-        <StyledButton>Sign up now</StyledButton>
+        <Button primary>Sign up now</Button>
       </StyledAnchorLink>
     </Wrapper>
   );

@@ -1,15 +1,15 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-import Logo from "../images/logo.svg";
-import { Button } from "./styles";
+import Button from "./button";
+import LogoWithMainTextHorizontal from "./svgs/logoWithMainTextHorizontal";
 
 const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 32px;
-
+  padding: var(--spacing-large);
   svg {
     width: 124px;
   }
@@ -24,17 +24,24 @@ const Wrapper = styled.header`
   }
 `;
 
-const StyledButton = styled(Button)`
-  @media (min-width: 768px) {
-    /*padding: 16px 20px;*/
+const LogoWrapper = styled.div`
+  a {
+    display: flex;
+  }
+  svg {
+    width: 152px;
   }
 `;
 
 const Header = () => (
   <Wrapper>
-    <Logo />
+    <LogoWrapper>
+      <Link to="/">
+        <LogoWithMainTextHorizontal fill="var(--color-black)" />
+      </Link>
+    </LogoWrapper>
     <AnchorLink to="/#signup" title="Join the tribe">
-      <StyledButton>Sign up</StyledButton>
+      <Button primary text="Sign up" />
     </AnchorLink>
   </Wrapper>
 );

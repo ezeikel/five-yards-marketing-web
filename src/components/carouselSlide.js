@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledImg = styled(Img)`
-  margin-bottom: 32px;
+  margin-bottom: var(--spacing-large);
 `;
 
 const Label = styled.span`

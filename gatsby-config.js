@@ -1,3 +1,45 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const typekitConfig = {
+  typekit: {
+    id: process.env.TYPEKIT_ID,
+  },
+};
+
+const contentfulConfig = {
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  accessToken:
+    process.env.CONTENTFUL_ACCESS_TOKEN ||
+    process.env.CONTENTFUL_DELIVERY_TOKEN,
+};
+
+// If you want to use the preview API please define
+// CONTENTFUL_HOST and CONTENTFUL_PREVIEW_ACCESS_TOKEN in your
+// environment config.
+//
+// CONTENTFUL_HOST should map to `preview.contentful.com`
+// CONTENTFUL_PREVIEW_ACCESS_TOKEN should map to your
+// Content Preview API token
+//
+// For more information around the Preview API check out the documentation at
+// https://www.contentful.com/developers/docs/references/content-preview-api/#/reference/spaces/space/get-a-space/console/js
+//
+// To change back to the normal CDA, remove the CONTENTFUL_HOST variable from your environment.
+if (process.env.CONTENTFUL_HOST) {
+  contentfulConfig.host = process.env.CONTENTFUL_HOST;
+  contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
+}
+
+const { spaceId, accessToken } = contentfulConfig;
+
+if (!spaceId || !accessToken) {
+  throw new Error(
+    "Contentful spaceId and the access token need to be provided."
+  );
+}
+
 module.exports = {
   siteMetadata: {
     title: `Five Yards - Untraditionally traditional.`,
@@ -13,14 +55,26 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "UA-149484751-1",
-        head: true,
-        // TODO: find out if this is required due to any privacy laws
-        // anonymize: true,
-        // respectDNT: true,
-        pageTransitionDelay: 0,
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [process.env.GA_MEASUREMENT_ID],
+        // This object gets passed directly to the gtag config command
+        // This config will be shared across all trackingIds
+        // gtagConfig: {
+        //   optimize_id: "OPT_CONTAINER_ID",
+        //   anonymize_ip: true,
+        //   cookie_expires: 0,
+        // },
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+          // Setting this parameter is also optional
+          // respectDNT: true,
+          // Avoids sending pageview hits from custom paths
+          // exclude: ["/preview/**", "/do-not-track/me/too/"],
+        },
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -33,6 +87,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -45,17 +100,13 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-source-contentful",
+      options: contentfulConfig,
+    },
     {
       resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        typekit: {
-          id: "bch1lxu",
-        },
-      },
+      options: typekitConfig,
     },
     {
       resolve: "gatsby-plugin-mailchimp",
