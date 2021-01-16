@@ -17,25 +17,15 @@ const Wrapper = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr auto;
-    grid-column-gap: 32px;
+    grid-column-gap: var(--spacing-large);
   }
 `;
 
 const Subheading = styled.h2`
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1.8rem;
+  line-height: 1.5;
   font-weight: 400;
   margin: 0 0 var(--spacing-huge);
-  @media (min-width: 768px) {
-    font-size: 16px;
-    line-height: 20px;
-    margin: 0 0 39px;
-  }
-  @media (min-width: 1280px) {
-    font-size: 25px;
-    line-height: 32px;
-    margin: 0 0 60px;
-  }
 `;
 
 const AppPreview = styled.div`
@@ -57,7 +47,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   justify-content: center;
   padding: 20px 20px 0;
   @media (min-width: 768px) {
-    padding: 36px;
+    padding: var(--spacing-large);
     /* height: 782px; TODO: replace fixed value */
     align-items: center;
     &:before,
@@ -82,8 +72,7 @@ const StyledUiImage = styled(Img)`
 const CTA = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 0 32px;
-  padding: 0 36px;
+  padding: 0 var(--spacing-large) var(--spacing-large);
   @media (min-width: 768px) {
     justify-content: center;
     grid-column: 1 / span 1;
@@ -95,17 +84,17 @@ const CTA = styled.div`
 `;
 
 const Thanks = styled.div`
-  font-size: 12px;
+  font-size: 1.2rem;
   text-align: center;
   h3 {
     font-family: var(--secondary-font-family);
     font-weight: 800;
-    font-size: 25px;
+    font-size: 2.5rem;
     line-height: 30px;
     margin: 0 0 29px;
   }
   p {
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 21px;
     margin: 0 0 31px;
   }
@@ -122,7 +111,7 @@ const Thanks = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 16px;
+        font-size: 1.6rem;
         line-height: 28px;
         color: var(--color-white);
       }
@@ -147,13 +136,13 @@ const Thanks = styled.div`
 
   @media (min-width: 768px) {
     h3 {
-      font-size: 70px;
+      font-size: 7rem;
       line-height: 80px;
       margin-bottom: 30px;
     }
 
     p {
-      font-size: 25px;
+      font-size: 2.5rem;
       line-height: 32px;
       margin-bottom: 81px;
     }
@@ -165,7 +154,7 @@ const Thanks = styled.div`
         padding: 16px 33px;
         max-width: 250px; /* TODO: replace fixed value */
         a {
-          font-size: 29px;
+          font-size: 2.9rem;
           line-height: 45px;
         }
         svg {

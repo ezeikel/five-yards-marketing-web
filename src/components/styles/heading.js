@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 const StyledHeading = styled.h1`
   font-family: var(--font-family-secondary);
-  font-size: 35px;
+  font-size: 3.5rem;
   line-height: 44px;
-  margin: 0 0 var(--spacing-medium);
+  margin: 0 0 var(--spacing-large);
   @media (min-width: 768px) {
-    font-size: 44px;
+    font-size: 4.4rem;
     line-height: 50px;
   }
   @media (min-width: 1280px) {
-    font-size: 70px;
+    font-size: 7rem;
     line-height: 80px;
   }
 `;

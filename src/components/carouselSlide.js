@@ -12,7 +12,7 @@ const StyledImg = styled(Img)`
 `;
 
 const Label = styled.span`
-  font-size: 20px;
+  font-size: 2rem;
   line-height: 30px;
   text-align: center;
   flex: 0 0 auto;

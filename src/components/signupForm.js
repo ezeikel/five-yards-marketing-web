@@ -14,7 +14,6 @@ const SignupSchema = Yup.object().shape({
 
 const Wrapper = styled.div`
   display: flex;
-  margin-bottom: var(--spacing-medium);
 
   @media (min-width: 768px) {
     max-width: 400px;

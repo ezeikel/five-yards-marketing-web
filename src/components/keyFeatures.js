@@ -16,7 +16,6 @@ const Wrapper = styled.div`
 `;
 
 const StyledHeading = styled(Heading)`
-  margin: 0 0 32px;
   @media (min-width: 768px) {
     margin: 0 0 52px;
     grid-column: 1 / -1;
@@ -47,7 +46,7 @@ const SliderNavLinks = styled.ul`
     li {
       cursor: pointer;
       transition: color 0.3s ease-in-out;
-      font-size: 25px;
+      font-size: 2.5rem;
       line-height: 31px;
       padding: 13px 33px;
       & + li {

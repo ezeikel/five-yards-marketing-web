@@ -18,46 +18,38 @@ const Wrapper = styled.div`
 const Note = styled.span`
   font-family: var(--font-family-secondary);
   display: flex;
-  font-size: 20px;
+  font-size: 2rem;
   color: var(--color-primary);
   margin-bottom: 12px;
   opacity: 0.49;
   font-weight: 500;
   @media (min-width: 768px) {
-    font-size: 25px;
+    font-size: 2.5rem;
     margin-bottom: 10px;
   }
 `;
 
 const Heading = styled.h4`
   font-family: var(--font-family-secondary);
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 600;
-  margin: 0 0 8px;
-  @media (min-width: 768px) {
-    font-size: 30px;
-    margin: 0 0 10px;
-  }
+  margin: 0 0 var(--spacing-medium);
 `;
 
 const Body = styled.p`
-  font-size: 20px;
+  font-size: 1.8rem;
   line-height: 1.5;
-  margin-bottom: 8px;
-  @media (min-width: 768px) {
-    font-size: 20px;
-    line-height: 30px;
-  }
+  margin: 0;
 `;
 
 const StyledImg = styled(Img)`
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-large);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
 `;
 
 const Bottom = styled.div`
-  padding: 16px;
+  padding: var(--spacing-medium);
   @media (min-width: 768px) {
     padding: 0 20px 70px;
   }

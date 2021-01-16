@@ -8,14 +8,14 @@ const Wrapper = styled.div`
   background-color: var(--color-background);
 
   > div + div {
-    margin: 45px 0 0;
+    margin: var(--spacing-large) 0 0;
   }
 
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
     > div + div {
-      margin: 0 0 0 45px;
+      margin: 0 0 0 var(--spacing-large);
     }
   }
 `;

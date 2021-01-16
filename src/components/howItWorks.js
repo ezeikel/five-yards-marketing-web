@@ -8,17 +8,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--color-background);
-  padding: 40px 36px 40px;
+  padding: var(--spacing-large);
   @media (min-width: 768px) {
-    padding: 60px 66px 79px;
     border-radius: var(--border-radius);
-  }
-`;
-
-const StyledHeading = styled(Heading)`
-  margin: 0 0 32px;
-  @media (min-width: 768px) {
-    margin: 0 0 52px;
   }
 `;
 
@@ -77,7 +69,7 @@ const HowItWorks = () => {
 
   return (
     <Wrapper>
-      <StyledHeading level={2}>How it works</StyledHeading>
+      <Heading level={2}>How it works</Heading>
       <Cards items={STEPS} />
     </Wrapper>
   );
