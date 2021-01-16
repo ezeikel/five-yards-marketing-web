@@ -5,8 +5,6 @@ import Img from "gatsby-image";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  border: 10px solid red;
 `;
 
 const StyledImg = styled(Img)`
