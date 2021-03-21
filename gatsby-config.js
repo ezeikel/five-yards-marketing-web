@@ -1,6 +1,4 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+require("dotenv").config();
 
 const typekitConfig = {
   typekit: {
@@ -10,9 +8,14 @@ const typekitConfig = {
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
+  host:
+    process.env.CUSTOM_NODE_ENV === "production"
+      ? "cdn.contentful.com"
+      : "preview.contentful.com",
   accessToken:
-    process.env.CONTENTFUL_ACCESS_TOKEN ||
-    process.env.CONTENTFUL_DELIVERY_TOKEN,
+    process.env.CUSTOM_NODE_ENV === "production"
+      ? process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN
+      : process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
 };
 
 // If you want to use the preview API please define
