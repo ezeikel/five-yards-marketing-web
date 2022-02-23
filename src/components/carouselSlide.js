@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   margin-bottom: var(--spacing-large);
 `;
 
@@ -27,7 +27,7 @@ const CarouselSlide = ({ data }) => {
   return (
     <Wrapper>
       <StyledImg
-        fluid={data.content}
+        image={data.content}
         imgStyle={{
           objectFit: "cover",
         }}

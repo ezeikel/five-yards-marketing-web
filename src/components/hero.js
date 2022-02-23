@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import BackgroundImage from "gatsby-background-image";
-import Img from "gatsby-image";
+import { BgImage } from "gbimage-bridge";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import GenericModal from "./genericModal";
@@ -41,7 +41,7 @@ const AppPreview = styled.div`
   }
 `;
 
-const StyledBackgroundImage = styled(BackgroundImage)`
+const StyledBackgroundImage = styled(BgImage)`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -57,7 +57,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   }
 `;
 
-const StyledUiImage = styled(Img)`
+const StyledUiImage = styled(GatsbyImage)`
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   margin: 0 0 calc(var(--spacing-large) * -1);
@@ -70,7 +70,7 @@ const StyledUiImage = styled(Img)`
   }
 `;
 
-const CTA = styled.div`
+const Cta = styled.div`
   display: flex;
   flex-direction: column;
   padding: var(--spacing-large);
@@ -177,16 +177,12 @@ const Hero = () => {
       }
       fabricImage: file(relativePath: { eq: "fabric.png" }) {
         childImageSharp {
-          fluid(maxWidth: 523) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       uiImage: file(relativePath: { eq: "app-ui.png" }) {
         childImageSharp {
-          fluid(maxWidth: 523) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
@@ -207,13 +203,13 @@ const Hero = () => {
       <AppPreview>
         <StyledBackgroundImage
           Tag="div"
-          fluid={data.fabricImage.childImageSharp.fluid}
+          image={data.fabricImage.childImageSharp.gatsbyImageData}
           imgStyle={{
             objectFit: "cover",
           }}
         >
           <StyledUiImage
-            fluid={data.uiImage.childImageSharp.fluid}
+            image={data.uiImage.childImageSharp.gatsbyImageData}
             imgStyle={{
               objectFit: "cover",
               objectPosition: "top center",
@@ -221,11 +217,11 @@ const Hero = () => {
           />
         </StyledBackgroundImage>
       </AppPreview>
-      <CTA>
+      <Cta>
         <Heading>{data.contentfulHero.heading}</Heading>
         <Subheading>{data.contentfulHero.subHeading}</Subheading>
         <SignupForm openModal={openModal} />
-      </CTA>
+      </Cta>
       <GenericModal
         isOpen={isOpen}
         onRequestClose={closeModal}

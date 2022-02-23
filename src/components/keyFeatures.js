@@ -67,37 +67,27 @@ const Header = () => {
     query {
       searchImage: file(relativePath: { eq: "search.png" }) {
         childImageSharp {
-          fluid(maxWidth: 477) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       reviewsImage: file(relativePath: { eq: "reviews.png" }) {
         childImageSharp {
-          fluid(maxWidth: 477) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       messagingImage: file(relativePath: { eq: "messaging.png" }) {
         childImageSharp {
-          fluid(maxWidth: 477) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       trackingImage: file(relativePath: { eq: "tracking.png" }) {
         childImageSharp {
-          fluid(maxWidth: 477) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       dashboardImage: file(relativePath: { eq: "dashboard.png" }) {
         childImageSharp {
-          fluid(maxWidth: 477) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
@@ -106,27 +96,27 @@ const Header = () => {
   const KEY_FEATURES = [
     {
       title: "search",
-      content: data.searchImage.childImageSharp.fluid,
+      content: data.searchImage.childImageSharp.gatsbyImageData,
       label: "Criteria based search",
     },
     {
       title: "reviews",
-      content: data.reviewsImage.childImageSharp.fluid,
+      content: data.reviewsImage.childImageSharp.gatsbyImageData,
       label: "Customer reviews",
     },
     {
       title: "messaging",
-      content: data.messagingImage.childImageSharp.fluid,
+      content: data.messagingImage.childImageSharp.gatsbyImageData,
       label: "Private messages",
     },
     {
       title: "tracking",
-      content: data.trackingImage.childImageSharp.fluid,
+      content: data.trackingImage.childImageSharp.gatsbyImageData,
       label: "Order tracking",
     },
     {
       title: "dashboard",
-      content: data.dashboardImage.childImageSharp.fluid,
+      content: data.dashboardImage.childImageSharp.gatsbyImageData,
       label: "Personalised dashboard",
     },
   ];
@@ -146,12 +136,10 @@ const Header = () => {
       <SliderNav>
         <SliderNavLinks>
           {KEY_FEATURES.map((slide, i) => (
-            <li
-              onClick={() => handleClick(i)}
-              className={activeSlide === i ? "active" : ""}
-              key={i}
-            >
-              {slide.label}
+            <li className={activeSlide === i ? "active" : ""} key={i}>
+              <button type="button" onClick={() => handleClick(i)}>
+                {slide.label}
+              </button>
             </li>
           ))}
         </SliderNavLinks>

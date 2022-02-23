@@ -19,25 +19,19 @@ const HowItWorks = () => {
     query {
       usingIpadImage: file(relativePath: { eq: "using-ipad.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 477) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       tailorWorkingImage: file(relativePath: { eq: "tailor-working.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 477) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       receivingPackageImage: file(
         relativePath: { eq: "receiving-package.jpg" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 477) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
@@ -45,21 +39,21 @@ const HowItWorks = () => {
 
   const STEPS = [
     {
-      image: data.usingIpadImage.childImageSharp.fluid,
+      image: data.usingIpadImage.childImageSharp.gatsbyImageData,
       heading: "Choose a fabric",
       body:
         "Get inspired by some popular fabrics and looks. Choose the type, colour and how many yards you need",
       note: "01",
     },
     {
-      image: data.tailorWorkingImage.childImageSharp.fluid,
+      image: data.tailorWorkingImage.childImageSharp.gatsbyImageData,
       heading: "Place an order",
       body:
         "Find a tailor based your criteria and get accurate completion estimates and progress updates throughout the process",
       note: "02",
     },
     {
-      image: data.receivingPackageImage.childImageSharp.fluid,
+      image: data.receivingPackageImage.childImageSharp.gatsbyImageData,
       heading: "Receive your outfit",
       body:
         "Either get your outfit delivered or physically go and pick it up from your tailor. It’s your choice",

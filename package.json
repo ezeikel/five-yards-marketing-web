@@ -26,7 +26,6 @@
     "formik": "^2.2.9",
     "gatsby": "^4.8.0",
     "gatsby-background-image": "^1.6.0",
-    "gatsby-image": "^3.11.0",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-google-gtag": "^4.8.0",
     "gatsby-plugin-hotjar": "^1.1.1",
@@ -43,6 +42,7 @@
     "gatsby-source-contentful": "^7.6.0",
     "gatsby-source-filesystem": "^4.8.0",
     "gatsby-transformer-sharp": "^4.8.0",
+    "gbimage-bridge": "^0.2.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-device-detect": "^2.1.2",
@@ -56,6 +56,10 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "prettier": "2.5.1"
+    "autoprefixer": "^10.4.2",
+    "gatsby-plugin-postcss": "^5.8.0",
+    "postcss": "^8.4.6",
+    "prettier": "2.5.1",
+    "tailwindcss": "^3.0.23"
   }
 }

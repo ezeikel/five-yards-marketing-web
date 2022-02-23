@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,7 +42,7 @@ const Body = styled.p`
   margin: 0;
 `;
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   margin-bottom: var(--spacing-large);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
@@ -58,7 +58,7 @@ const Bottom = styled.div`
 const Card = ({ image, heading, body, note }) => (
   <Wrapper>
     <StyledImg
-      fluid={image}
+      image={image}
       imgStyle={{
         objectFit: "cover",
       }}
