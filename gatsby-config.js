@@ -88,8 +88,9 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -128,8 +129,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sentry",
       options: {
-        dsn:
-          "https://30e084ac65b444529916384ff996ec2b@o358156.ingest.sentry.io/5361983",
+        dsn: process.env.SENTRY_DSN,
         // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
         environment: process.env.NODE_ENV,
         enabled: (() =>

@@ -61,18 +61,13 @@ const SignupForm = ({ openModal }) => {
                 email: errorMessage,
               });
 
-              window.gtag("event", "click", {
-                category: "Form",
-                action: "Fail",
-                label: "Signup Form",
-              });
+              typeof window !== "undefined" &&
+                window.gtag("event", "waiting_list_signup_fail", { email });
+
               setSubmitting(false);
             } else {
-              window.gtag("event", "click", {
-                category: "Form",
-                action: "Success",
-                label: "Signup Form",
-              });
+              typeof window !== "undefined" &&
+                window.gtag("event", "waiting_list_signup_success", { email });
 
               setSubmitting(false);
               resetForm();
