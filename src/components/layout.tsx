@@ -5,10 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import GlobalStyle from "../GlobalStyle";
+import React, { ReactNode } from "react";
 import Header from "./header";
 import Footer from "./footer";
 
@@ -35,18 +32,11 @@ library.add(
   faAngleDown,
 );
 
-const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    margin-top: var(--spacing-large);
-  }
-  @media (min-width: 1280px) {
-    margin-top: 50px;
-  }
-`;
+type LayoutProps = {
+  children: ReactNode;
+};
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="relative bg-white overflow-hidden pt-6">
       <Header />
@@ -56,10 +46,6 @@ const Layout = ({ children }) => {
       <Footer />
     </div>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

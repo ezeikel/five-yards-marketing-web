@@ -1,9 +1,8 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-const HowItWorks = () => {
+const Steps = () => {
   const data = useStaticQuery(graphql`
     query {
       usingIpadImage: file(relativePath: { eq: "using-ipad.jpg" }) {
@@ -53,14 +52,15 @@ const HowItWorks = () => {
         role="list"
         className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {STEPS.map(({ image, heading, body, note }) => (
+        {STEPS.map(({ image, heading, body, note }, i) => (
           <li key={note} className="col-span-1 bg-white rounded-lg shadow">
             <GatsbyImage
+              alt={`step ${i}`}
               image={image}
               className="[clip-path:polygon(0_0,_100%_0,_100%_75%,_0_100%)]"
             />
             <div className="p-6">
-              <div className="text-lg leading-6 font-medium opacity-50 text-gray-900 mb-2">
+              <div className="text-lg leading-6 font-medium opacity-50 text-indigo-500 mb-2">
                 {note}
               </div>
               <h4 className="mb-2 font-bold text-2xl">{heading}</h4>
@@ -73,4 +73,4 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks;
+export default Steps;

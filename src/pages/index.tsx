@@ -3,16 +3,16 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Hero from "../components/hero";
 import Features from "../components/features";
-import Cta from "../components/cta";
-import HowItWorks from "../components/howItWorks";
+import CTA from "../components/cta";
+import Steps from "../components/steps";
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Hero />
-    <HowItWorks />
+    <Steps />
     <Features />
-    <Cta />
+    <CTA />
   </Layout>
 );
 

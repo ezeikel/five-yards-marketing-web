@@ -49,8 +49,8 @@ module.exports = {
     ogTitle: `Revolutionising the process of getting traditional sewn.`,
     description: `Find the finest fabrics and most talented tailors all over the world and manage the process of getting traditional garments sewn all through one app.`,
     author: `@fiveyardsapp`,
-    url: `https://get.fiveyardsapp.app`,
-    secureUrl: `https://get.fiveyards.app`,
+    url: `https://get.fiveyardsapp.co`,
+    secureUrl: `https://get.fiveyards.co`,
     image: `https://api.fiveyards.app/images/og-image.jpg`,
     twitterImage: `https://api.fiveyards.app/images/twitter-card.jpg`,
     locale: `en_GB`,
@@ -90,18 +90,12 @@ module.exports = {
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`, // Needed for dynamic images
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo-color.png`,
       },
     },
     {
@@ -158,5 +152,6 @@ module.exports = {
         sv: 6,
       },
     },
+    `gatsby-plugin-postcss`,
   ],
 };
