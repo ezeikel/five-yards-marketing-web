@@ -1,18 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import Cards from "./cards";
-import { Heading } from "./styles";
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-background);
-  padding: var(--spacing-large);
-  @media (min-width: 768px) {
-    border-radius: var(--border-radius);
-  }
-`;
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const HowItWorks = () => {
   const data = useStaticQuery(graphql`
@@ -41,31 +30,46 @@ const HowItWorks = () => {
     {
       image: data.usingIpadImage.childImageSharp.gatsbyImageData,
       heading: "Choose a fabric",
-      body:
-        "Get inspired by some popular fabrics and looks. Choose the type, colour and how many yards you need",
+      body: "Get inspired by some popular fabrics and looks. Choose the type, colour and how many yards you need",
       note: "01",
     },
     {
       image: data.tailorWorkingImage.childImageSharp.gatsbyImageData,
       heading: "Place an order",
-      body:
-        "Find a tailor based your criteria and get accurate completion estimates and progress updates throughout the process",
+      body: "Find a tailor based your criteria and get accurate completion estimates and progress updates throughout the process",
       note: "02",
     },
     {
       image: data.receivingPackageImage.childImageSharp.gatsbyImageData,
       heading: "Receive your outfit",
-      body:
-        "Either get your outfit delivered or physically go and pick it up from your tailor. It’s your choice",
+      body: "Either get your outfit delivered or physically go and pick it up from your tailor. It’s your choice",
       note: "03",
     },
   ];
 
   return (
-    <Wrapper>
-      <Heading level={2}>How it works</Heading>
-      <Cards items={STEPS} />
-    </Wrapper>
+    <div className="pb-16 sm:pb-24 lg:pb-32">
+      <ul
+        role="list"
+        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        {STEPS.map(({ image, heading, body, note }) => (
+          <li key={note} className="col-span-1 bg-white rounded-lg shadow">
+            <GatsbyImage
+              image={image}
+              className="[clip-path:polygon(0_0,_100%_0,_100%_75%,_0_100%)]"
+            />
+            <div className="p-6">
+              <div className="text-lg leading-6 font-medium opacity-50 text-gray-900 mb-2">
+                {note}
+              </div>
+              <h4 className="mb-2 font-bold text-2xl">{heading}</h4>
+              <p className="text-base text-gray-500">{body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

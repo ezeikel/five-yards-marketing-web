@@ -39,7 +39,7 @@ const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
   throw new Error(
-    "Contentful spaceId and the access token need to be provided."
+    "Contentful spaceId and the access token need to be provided.",
   );
 }
 
@@ -158,6 +158,5 @@ module.exports = {
         sv: 6,
       },
     },
-    `gatsby-plugin-postcss`,
   ],
 };

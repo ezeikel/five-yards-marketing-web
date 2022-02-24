@@ -32,32 +32,8 @@ library.add(
   faWhatsapp,
   faCheckCircle,
   faTimesCircle,
-  faAngleDown
+  faAngleDown,
 );
-
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-
-  @media (min-width: 768px) {
-    grid-template-rows: 97px 1fr auto;
-    grid-template-columns: 35px 1fr 35px;
-    > * {
-      grid-column: 2 / -2;
-    }
-    > .full {
-      grid-column: 1 / -1;
-    }
-  }
-
-  /* @media (min-width: 1024px) {
-    grid-template-columns: 70px 1fr 70px;
-  }
-  @media (min-width: 1200px) {
-    grid-template-columns: 140px 1fr 140px;
-  } */
-`;
 
 const Main = styled.main`
   display: flex;
@@ -72,14 +48,13 @@ const Main = styled.main`
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <GlobalStyle />
-      <Wrapper>
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
-      </Wrapper>
-    </>
+    <div className="relative bg-white overflow-hidden pt-6">
+      <Header />
+      <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-32">
+        {children}
+      </main>
+      <Footer />
+    </div>
   );
 };
 
