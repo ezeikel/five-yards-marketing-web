@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import GenericModal from "./modals/GenericModal/genericModal";
-import SignupForm from "./forms/SignUpForm/signupForm";
+import SignupForm from "./forms/SignUpForm/signUpForm";
 import SubscriptionSuccessfulModal from "./modals/SubscriptionSuccessful/subscriptionSuccessful";
 
 const Hero = () => {
