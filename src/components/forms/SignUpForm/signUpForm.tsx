@@ -27,7 +27,11 @@ const SignupForm = ({ openModal }: SignUpFormProps) => {
         const listData = {};
 
         try {
-          const result = await addToMailchimp(email, listData, null);
+          const result = await addToMailchimp(
+            email.toLocaleLowerCase(),
+            listData,
+            null,
+          );
 
           if (result.result === "error") {
             const errorMessage = result.msg.includes("is already subscribed")
@@ -66,7 +70,6 @@ const SignupForm = ({ openModal }: SignUpFormProps) => {
     >
       {({ isSubmitting, errors, touched }) => {
         const hasError = touched.email && errors.email;
-        console.log({ touched, errors });
         const textInputClassname = classNames(
           "block w-full py-3 text-base rounded-md placeholder-gray-500 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:flex-1 border-gray-300",
           {
