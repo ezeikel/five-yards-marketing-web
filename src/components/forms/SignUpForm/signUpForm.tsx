@@ -2,6 +2,12 @@ import React from "react";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import classNames from "classnames";
+import { ExclamationCircleIcon } from "@heroicons/react/solid";
+
+type SignUpFormProps = {
+  openModal: () => void;
+};
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -9,7 +15,7 @@ const SignupSchema = Yup.object().shape({
     .required("Enter an email"),
 });
 
-const SignupForm = ({ openModal, errors, touched }) => {
+const SignupForm = ({ openModal }: SignUpFormProps) => {
   return (
     <Formik
       initialValues={{ email: "" }}
@@ -32,11 +38,13 @@ const SignupForm = ({ openModal, errors, touched }) => {
             });
 
             typeof window !== "undefined" &&
+              window.gtag &&
               window.gtag("event", "waiting_list_signup_fail", { email });
 
             setSubmitting(false);
           } else {
             typeof window !== "undefined" &&
+              window.gtag &&
               window.gtag("event", "waiting_list_signup_success", { email });
 
             setSubmitting(false);
@@ -56,27 +64,58 @@ const SignupForm = ({ openModal, errors, touched }) => {
         }
       }}
     >
-      {({ isSubmitting }) => (
-        <Form id="signup" className="mt-3 sm:flex">
-          <label htmlFor="email" className="sr-only">
-            Email
-          </label>
-          <Field
-            type="email"
-            name="email"
-            className="block w-full py-3 text-base rounded-md placeholder-gray-500 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:flex-1 border-gray-300"
-            placeholder="Your email"
-          />
-          {touched.email && errors.email && <div>{errors.email}</div>}
-          <button
-            type="submit"
-            // disabled={isSubmitting}
-            className="mt-3 w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 shadow-sm hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto"
-          >
-            {isSubmitting ? "Sending.." : "Notify me"}
-          </button>
-        </Form>
-      )}
+      {({ isSubmitting, errors, touched }) => {
+        const hasError = touched.email && errors.email;
+        console.log({ touched, errors });
+        const textInputClassname = classNames(
+          "block w-full py-3 text-base rounded-md placeholder-gray-500 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:flex-1 border-gray-300",
+          {
+            "pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm":
+              hasError,
+          },
+        );
+        return (
+          <Form id="signup" className="mt-3 sm:flex">
+            <label htmlFor="email" className="sr-only">
+              Email
+            </label>
+            <div className="w-full">
+              <div className="w-full sm:flex">
+                <div className="mt-1 relative rounded-md shadow-sm flex-1">
+                  <Field
+                    type="email"
+                    name="email"
+                    className={textInputClassname}
+                    placeholder="Your email"
+                    aria-invalid={hasError}
+                    aria-describedby={hasError ? "email-error" : ""}
+                  />
+                  {hasError ? (
+                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                      <ExclamationCircleIcon
+                        className="h-5 w-5 text-red-500"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  ) : null}
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="mt-3 w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 shadow-sm hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto"
+                >
+                  {isSubmitting ? "Sending.." : "Notify me"}
+                </button>
+              </div>
+              {hasError ? (
+                <p className="mt-2 text-sm text-red-600" id="email-error">
+                  {errors.email}
+                </p>
+              ) : null}
+            </div>
+          </Form>
+        );
+      }}
     </Formik>
   );
 };

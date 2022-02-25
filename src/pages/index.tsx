@@ -2,9 +2,9 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Hero from "../components/hero";
+import Steps from "../components/steps";
 import Features from "../components/features";
 import CTA from "../components/cta";
-import Steps from "../components/steps";
 
 const IndexPage = () => (
   <Layout>

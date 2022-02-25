@@ -3,6 +3,7 @@ import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import GenericModal from "./modals/GenericModal/genericModal";
 import SignupForm from "./forms/SignUpForm/signupForm";
+import SubscriptionSuccessfulModal from "./modals/SubscriptionSuccessful/subscriptionSuccessful";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,62 +62,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <GenericModal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
-        heading="Join the waitlisy"
-        contentLabel=""
-        close={closeModal}
-      >
-        <div>
-          <div>Welcome to the Tribe!</div>
-          <p>
-            You are now on the waitlist. We'd really appreciate if you could
-            spread the word
-          </p>
-          <ul>
-            <li className="twitter">
-              <OutboundLink
-                href="http://twitter.com/share?text=I just became part of the @fiveyardsapp tribe. You should join too! - &url=https://get.fiveyards.app&hashtags=fiveyards,africantailor,africanfabric"
-                target="_blank"
-              >
-                <FontAwesomeIcon
-                  icon={["fab", "twitter"]}
-                  color="var(--color-white)"
-                  size="lg"
-                />
-                Twitter
-              </OutboundLink>
-            </li>
-            <li className="facebook">
-              <OutboundLink
-                href="https://www.facebook.com/sharer/sharer.php?u=https://get.fiveyards.app"
-                target="_blank"
-              >
-                <FontAwesomeIcon
-                  icon={["fab", "facebook-f"]}
-                  color="var(--color-white)"
-                  size="lg"
-                />
-                Facebook
-              </OutboundLink>
-            </li>
-            <li className="whatsapp">
-              <OutboundLink
-                href="whatsapp://send?text=I just became part of the Five Yards tribe. You should join too! https://get.fiveyards.app"
-                data-action="share/whatsapp/share"
-              >
-                <FontAwesomeIcon
-                  icon={["fab", "whatsapp"]}
-                  color="var(--color-white)"
-                  size="lg"
-                />
-                WhatsApp
-              </OutboundLink>
-            </li>
-          </ul>
-        </div>
-      </GenericModal>
+      <SubscriptionSuccessfulModal isOpen={isOpen} closeModal={closeModal} />
     </>
   );
 };

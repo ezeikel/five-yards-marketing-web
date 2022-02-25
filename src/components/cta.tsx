@@ -1,7 +1,6 @@
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
-/* This example requires Tailwind CSS v2.0+ */
-export default function Example() {
+const CTA = () => {
   return (
     <div className="bg-indigo-700">
       <div className="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
@@ -21,4 +20,6 @@ export default function Example() {
       </div>
     </div>
   );
-}
+};
+
+export default CTA;
